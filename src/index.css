@@ -1,0 +1,66 @@
+:root {
+    --bg-color: #000000;
+    --color-1: rgb(236, 236, 236);
+    --color-2: rgb(250, 250, 250);
+    --color-3: rgb(136, 136, 136);
+
+    --block-1: rgb(26, 26, 26);
+    --block-2: rgb(36, 36, 36);
+    --block-3: rgb(49, 49, 49);
+
+    --blue-color-1: rgb(104, 181, 251);
+    --blue-color-2: rgb(127, 201, 255);
+
+    --border-radius-1: 4px;
+    --border-radius-2: 8px;
+    --border-radius-3: 16px;
+
+    --header-height: 80px
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    min-height: 100dvh;
+    color: var(--color-1);
+    position: relative;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin-top: var(--header-height);
+}
+button {
+    all: unset;
+    cursor: pointer;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--block-2);
+    border-radius: 3px;
+    border: 2px solid var(--bg-color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--block-3);
+}
+.icon.close {
+    background: var(--color-1);
+    display: flex;
+    height: 20px;
+    width: 20px;
+    -webkit-mask: url('./media/svg/close.svg') no-repeat center / contain;
+    mask: url('./media/svg/close.svg') no-repeat center / contain
+}
+
