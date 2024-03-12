@@ -15,6 +15,9 @@ header {
 body:has(.search-modal-container.open) header {
     width: calc(100% - 16% - 10px);
 }
+body:has(.rule-modal-container.open) header {
+    width: calc(100% - 16% - 10px);
+}
 header.scrolled {
     height: 50px;
     border-bottom: 1px solid var(--block-3);

@@ -1,0 +1,87 @@
+.rule-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.rule-container span {
+    line-height: 1.4rem;
+}
+.rule-container-category {
+    gap: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+.rule-container-category:not(:last-child) {
+    border-bottom: 1px solid var(--block-2);
+    padding-bottom: 0.75em;
+}
+.rule-example-headline {
+    color: var(--blue-color-1);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.rule-description-key {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.rule-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+.rule-list-container-elements {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+.rule-list-element {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+    color: var(--color-1);
+    background: var(--block-1);
+    border-radius: var(--border-radius-1);
+}
+.rule-description-value {
+}
+.rule-example-plain-text {
+}
+.rule-bullet-points-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+.rule-bullet-point {
+    margin-left: 0.5em;
+}
+.rule-chat-example {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+.rule-chat-message-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25em;
+    align-items: center;
+    margin-left: 0.5em;
+}
+.rule-chat-user.user-a {
+    color: #ff7bf4
+}
+.rule-chat-user.user-b {
+    color: #93ff7b
+}
+.rule-chat-message {
+    background: var(--block-1);
+    padding: 4px 8px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+}
+.rule-chat-description {
+    color: var(--color-desc);
+    font-size: 0.9rem;
+}

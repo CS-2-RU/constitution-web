@@ -3,6 +3,7 @@
     --color-1: rgb(236, 236, 236);
     --color-2: rgb(250, 250, 250);
     --color-3: rgb(136, 136, 136);
+    --color-desc: rgb(196, 196, 196);
 
     --block-1: rgb(26, 26, 26);
     --block-2: rgb(36, 36, 36);
@@ -64,3 +65,39 @@ button {
     mask: url('./media/svg/close.svg') no-repeat center / contain
 }
 
+b {
+    all: unset;
+    color: var(--blue-color-1);
+}
+
+c {
+    all: unset;
+    background: var(--block-1);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+    color: var(--blue-color-1);
+}
+r {
+    all: unset;
+    background: var(--block-1);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+    color: #ff8936;
+}
+u {
+    all: unset;
+    background: var(--block-1);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+    background: #343c66;
+}
+m {
+    all: unset;
+    background: var(--block-1);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+}
