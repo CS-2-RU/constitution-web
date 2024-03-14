@@ -6,7 +6,7 @@
 .home-category {
     display: flex;
     flex-direction: column;
-    max-width: 900px;
+    max-width: 1200px;
     gap: 1em;
 }
 .home-category-container {
@@ -14,6 +14,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1em;
+    justify-content: center;
 }
 .home-category-label {
     font-size: 26px;
@@ -60,4 +61,16 @@
 .home-category-element-link:hover {
     background: var(--block-2);
     color: var(--color-1);
+}
+
+@media (orientation: portrait) {
+    .home-category-container {
+        justify-content: center;
+    }
+    .home-category-element {
+        width: 90%;
+    }
+    .home-category-label {
+        text-align: center;
+    }
 }

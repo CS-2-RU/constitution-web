@@ -28,125 +28,125 @@ export const rules = {
         "1.1": {
             short_description: "Оскорбление участников сервера",
             element: Rule1p1,
-            keywords: ['пидор', 'ееее', 'хуй)']
+            keywords: ['1.1']
         },
         "1.2": {
             short_description: "КАПС, флуд и оффтоп",
             element: Rule1p2,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.2']
         },
         "1.3": {
             short_description: "Непингуемые никнеймы",
             element: Rule1p3,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.3']
         },
         "1.4": {
             short_description: "Сторонние программы и проверки",
             element: Rule1p4,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.4']
         },
         "1.5": {
             short_description: "Обман/скам участников сервера",
             element: Rule1p5,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.5']
         },
         "1.6": {
             short_description: "Твинк аккаунты",
             element: Rule1p6,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.6']
         },
         "1.7": {
             short_description: "Обход блокировки",
             element: Rule1p7,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.7']
         },
         "1.8": {
             short_description: "Оскорбление родных",
             element: Rule1p8,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.8']
         },
         "1.9": {
             short_description: "Политические и религиозные темы",
             element: Rule1p9,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.9']
         },
         "1.10": {
             short_description: "Распространение личной информации",
             element: Rule1p10,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.10']
         },
         "1.11": {
             short_description: "Нарушение правил сообщества Discord",
             element: Rule1p11,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.11']
         },
         "1.12": {
             short_description: "Вредоносные действия по отношению к серверу",
             element: Rule1p12,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['1.12']
         },
     }, "Реклама": {
         "2.1": {
             short_description: "Рекламная и предпринимательская деятельность",
             element: Rule2p1,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['2.1']
         },
         "2.2": {
             short_description: "Попрошайничество",
             element: Rule2p2,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['2.2']
         },
         "2.3": {
             short_description: "Покупка/продажа/обмен скинов, ключей, аккаунтов и т.п.",
             element: Rule2p3,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['2.3']
         },
         "2.4": {
             short_description: "Переманивание участников сервера",
             element: Rule2p4,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['2.4']
         },
     }, "Администрация": {
         "3.1": {
             short_description: "Выдача себя за администрацию",
             element: Rule3p1,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['3.1']
         },
         "3.2": {
             short_description: "Оскорбление администрации",
             element: Rule3p2,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['3.2']
         },
         "3.3": {
             short_description: "Несоблюдение прочих правил, указанных администрацией",
             element: Rule3p3,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['3.3']
         },
         "3.4": {
             short_description: "Обман администрации",
             element: Rule3p4,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['3.4']
         },
     }, "Голосовые каналы": {
         "4.1": {
             short_description: "Трансляция громких звуков",
             element: Rule4p1,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['4.1']
         },
         "4.2": {
             short_description: "Изменение голоса в голосовом канале",
             element: Rule4p2,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['4.2']
         },
         "4.3": {
             short_description: "Порча игры находясь в голосовом канале",
             element: Rule4p3,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['4.3']
         },
         "4.4": {
             short_description: "Препятствие нормальной игре",
             element: Rule4p4,
-            keywords: ['word1', 'word2', 'word3']
+            keywords: ['4.4']
         },
     }
 }

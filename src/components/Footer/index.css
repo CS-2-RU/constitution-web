@@ -1,0 +1,17 @@
+footer {
+    padding: 3em 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (orientation: portrait) {
+    footer {
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;
+        margin-top: 1em;
+        border-top: 1px solid var(--block-1);
+    }
+}

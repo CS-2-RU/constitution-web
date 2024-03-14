@@ -85,3 +85,93 @@
     color: var(--color-desc);
     font-size: 0.9rem;
 }
+.rule-punishment-td {
+    padding: 0.5em 1em;
+    margin: 0;
+    line-height: 1.4rem;
+}
+.rule-punishment-punishment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.punishment-table {
+    width: 100%;
+    background: var(--block-2);
+    border-radius: var(--border-radius-2);
+    padding: 0;
+    border-spacing: 0;
+    overflow: hidden;
+}
+.rule-punishment-th {
+    padding: 0.5em 1em;
+    text-align: left;
+    color: var(--blue-color-1);
+    font-size: 1.1rem;
+}
+.rule-punishment-th:nth-child(2) {
+    padding: 0.5em 0;
+}
+tr:nth-child(even) {
+    background-color: var(--block-3);
+}
+.punishment-key {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    padding: 2px 10px 2px 30px;
+    align-self: flex-start;
+    border-radius: var(--border-radius-1);
+    white-space: nowrap;
+}
+.rule-punishment-title {
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--blue-color-1);
+    text-align: center;
+}
+.punishment-key::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+.punishment-key.ban::before {
+    background: #e35252;
+}
+.punishment-key.warn::before {
+    background: #dc8163;
+}
+.punishment-key.mute::before {
+    background: #e5d467;
+}
+.punishment-key.nar::before {
+    background: #c4c5ce;
+}
+.punishment-value {
+    margin-left: 4px;
+    color: #cdd4de;
+    font-weight: 500;
+}
+.rule-punishment-description {
+    padding: 0.5em 0;
+}
+
+@media (orientation: portrait) {
+    .rule-punishment-tr {
+        display: flex;
+        flex-direction: column;
+    }
+    .rule-punishment-th {
+        display: none;
+    }
+    .rule-punishment-description{
+        padding: 0 1em;
+    }
+    .rule-punishment-title {
+        text-align: left;
+    }
+}
