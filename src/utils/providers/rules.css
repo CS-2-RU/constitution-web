@@ -151,6 +151,9 @@ tr:nth-child(even) {
 .punishment-key.nar::before {
     background: #c4c5ce;
 }
+.punishment-key.verbal::before {
+    background: #87d57b;
+}
 .punishment-value {
     margin-left: 4px;
     color: #cdd4de;
@@ -159,7 +162,26 @@ tr:nth-child(even) {
 .rule-punishment-description {
     padding: 0.5em 0;
 }
-
+.rule-image-container {
+    display: flex;
+    padding: 0.5em;
+    background: var(--block-2);
+    border: 1px solid var(--color-3);
+    border-radius: var(--border-radius-2);
+    align-self: flex-start;
+}
+.rule-image-container > img {
+    border-radius: var(--border-radius-1);
+}
+.rule-punishment-table.short {
+    align-self: flex-start;
+}
+.rule-punishment-table.short > .punishment-table > .rule-punishment-tr > .rule-punishment-punishment {
+    flex-direction: row;
+}
+.rule-punishment-table.short > .punishment-table > .rule-punishment-tr > .rule-punishment-th {
+    padding-left: 1em;
+}
 @media (orientation: portrait) {
     .rule-punishment-tr {
         display: flex;
@@ -168,10 +190,17 @@ tr:nth-child(even) {
     .rule-punishment-th {
         display: none;
     }
-    .rule-punishment-description{
+    .rule-punishment-description {
         padding: 0 1em;
     }
     .rule-punishment-title {
         text-align: left;
+    }
+    .rule-image-container > img {
+        width: 100% !important;
+        height: unset !important;
+    }
+    .rule-punishment-punishment {
+        flex-wrap: wrap;
     }
 }

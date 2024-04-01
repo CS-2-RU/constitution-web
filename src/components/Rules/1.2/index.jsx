@@ -3,10 +3,38 @@ import Description from "../Templates/Description";
 import Plain from "../Templates/Plain";
 import BulletPoints from "../Templates/BulletPoints";
 import UserChat from "../Templates/UserChat";
+import PunishmentTable from "../Templates/PunishmentTable";
 
 const Rule1p2 = () => {
     return(
         <div className="rule-container">
+            <PunishmentTable
+                data={[
+                    {
+                        title: '1',
+                        punishment: {
+                            verbal: true
+                        }
+                    },
+                    {
+                        title: '2',
+                        punishment: {
+                            nar: true,
+                        }
+                    },
+                    {
+                        title: '3',
+                        punishment: {
+                            mute: '10 минут',
+                        }
+                    },
+                    {
+                        title: '4',
+                        punishment: {
+                            warn: true,
+                        }
+                    },
+                ]} />
             <div className="rule-container-category">
                 <Description keyN={`<b>Капс</b>`} valueN=" - написание текста при включенном на клавиатуре режиме Caps lock, то есть ЗАГЛАВНЫМИ БУКВАМИ. Казалось, все понятно, но даже здесь есть свои нюансы." headline={null} />
                 <BulletPoints
@@ -42,6 +70,8 @@ const Rule1p2 = () => {
                     ['user-a', 'Участник', 'Кто мм?', 'должно удаляться вами'],
                     ['user-b', 'Администратор', '<u>@Участник</u> (вставляется копипаста из чата <c>#команды</c>)', null],
                 ]} />
+                <Description headline="Использовать эмодзи" valueN="больше 10 - запрещено" />
+                <Description headline="Стихи, песни, урывки из новостей" valueN="Запрещено, считается оффтопом" />
             </div>
         </div>
     )

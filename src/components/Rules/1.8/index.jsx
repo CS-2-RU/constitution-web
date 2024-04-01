@@ -1,6 +1,6 @@
 import React from "react";
 import Plain from "../Templates/Plain";
-import PunishmentTable from "../PunishmentTable";
+import PunishmentTable from "../Templates/PunishmentTable";
 
 const Rule1p8 = () => {
     return (

@@ -86,6 +86,38 @@ r {
     font-size: 0.9rem;
     color: #ff8936;
 }
+son {
+    all: unset;
+    background: var(--block-1);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+    color: #7fff71;
+}
+sdnd {
+    all: unset;
+    background: var(--block-1);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+    color: #ff5f5f;
+}
+soff {
+    all: unset;
+    background: var(--block-1);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+    color: #bbbbbb;
+}
+si {
+    all: unset;
+    background: var(--block-1);
+    padding: 2px 5px;
+    border-radius: var(--border-radius-1);
+    font-size: 0.9rem;
+    color: #ffbb77;
+}
 i {
     all: unset;
     background: var(--block-1);
@@ -132,9 +164,11 @@ body:has(.rule-modal-container.open) header {
 }
 body:has(.rule-modal-container.open) {
     overflow-y: hidden;
+    margin-right: 10px;
 }
 body:has(.search-modal-container.open) {
     overflow-y: hidden;
+    margin-right: 10px;
 }
 
 @media (orientation: portrait) {

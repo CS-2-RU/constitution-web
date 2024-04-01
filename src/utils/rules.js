@@ -22,6 +22,9 @@ import Rule4p1 from "../components/Rules/4.1";
 import Rule4p2 from "../components/Rules/4.2";
 import Rule4p3 from "../components/Rules/4.3";
 import Rule4p4 from "../components/Rules/4.4";
+import Profiles from "../components/Rules/Profiles";
+import CheatCheck from "../components/Rules/CheatCheck";
+import NavigationMap from "../components/Rules/NavigationMap";
 
 export const rules = {
     "Основные": {
@@ -148,5 +151,22 @@ export const rules = {
             element: Rule4p4,
             keywords: ['4.4']
         },
+    },
+    "Прочее": {
+        "Профили пользователей": {
+            short_description: "Все, что связано с профилями",
+            element: Profiles,
+            keywords: ['4.4']
+        },
+        "Проверка на читы": {
+            short_description: "Все, что нужно знать про проверки",
+            element: CheatCheck,
+            keywords: ['4.4']
+        },
+        "Карта Навигация": {
+            short_description: "Прочие важные моменты",
+            element: NavigationMap,
+            keywords: ['4.4']
+        }
     }
 }

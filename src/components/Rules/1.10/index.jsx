@@ -2,10 +2,21 @@ import React from "react";
 import Plain from "../Templates/Plain";
 import BulletPoints from "../Templates/BulletPoints";
 import UserChat from "../Templates/UserChat";
+import PunishmentTable from "../Templates/PunishmentTable";
 
 const Rule1p10 = () => {
     return (
         <div className="rule-container">
+            <PunishmentTable
+                data={[
+                    {
+                        title: '1',
+                        punishment: {
+                            mute: '24 часа',
+                            ban: '90 дней'
+                        }
+                    }
+                ]} />
             <Plain content="К личной информации относятся: имя, адрес проживания, почты и другие ресурсы способные как либо выдать информацию о человеке." />
             <Plain content="В зависимости от тяжести нарушения, зависит последующее наказание. Правило очень гибкое, выдавайте на свое усмотрение." />
             <BulletPoints headline="Пути решения при сливе в общий чат:" content={[

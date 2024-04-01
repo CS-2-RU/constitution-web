@@ -23,3 +23,25 @@ header.scrolled {
     height: 100%;
     border-radius: var(--border-radius-2);
 }
+.header-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.header-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+.header-link {
+    text-decoration: none;
+    color: var(--color-desc);
+    transition-duration: 0.2s;
+    text-align: center;
+}
+.header-link:hover {
+    color: var(--color-2);
+}

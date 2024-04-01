@@ -1,10 +1,21 @@
 import React from "react";
 import Plain from "../Templates/Plain";
 import BulletPoints from "../Templates/BulletPoints";
+import PunishmentTable from "../Templates/PunishmentTable";
 
 const Rule1p5 = () => {
     return (
         <div className="rule-container">
+            <PunishmentTable
+                data={[
+                    {
+                        title: '1',
+                        punishment: {
+                            mute: '24 часа',
+                            ban: '360 дней'
+                        }
+                    }
+                ]} />
             <Plain content="Будьте внимательны при выдаче данного пункта, если что-то недопоняли, вы всегда можете обратиться к старшей администрации" />
             <Plain content="Обман/скам участников сервера в первую очередь относится к попытке кражи нематериального имущества или иного вида (кража аккаунтов, обман на скины и т.п). Стоит учесть, что при разборе жалоб обмана/скама на сторонних площадках(сервера по майнкрафту, роблокс, раст и т.д) рассматриваются только при подтверждении администрации стороннего ресурса и подтверждение реальной стоимости потерянных ресурсов(при отсутствии реальной стоимости наказание не выдаются). " />
             <BulletPoints headline="Примеры:" content={[

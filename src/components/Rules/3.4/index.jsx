@@ -1,10 +1,28 @@
 import React from "react";
 import Plain from "../Templates/Plain";
 import BulletPoints from "../Templates/BulletPoints";
+import PunishmentTable from "../Templates/PunishmentTable";
 
 const Rule3p4 = () => {
     return (
         <div className="rule-container">
+            <PunishmentTable
+                data={[
+                    {
+                        title: '1',
+                        punishment: {
+                            mute: '24 часа',
+                            warn: true,
+                        }
+                    },
+                    {
+                        title: '2',
+                        punishment: {
+                            mute: '24 часа',
+                            ban: '30 дней',
+                        }
+                    },
+                ]} />
             <Plain content="Выдача данного пункта правил происходит в случаях когда игрок старается вас запутать/обмануть в ситуации." />
             <Plain content="Данные ситуации можно разделить на <c>Намеренно</c> и <c>Случайно</c>." />
             <Plain content="<c>Намеренно</c> - выдается наказание в 100% случаях. В зависимости от силы обмана." />
