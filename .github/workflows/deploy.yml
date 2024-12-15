@@ -23,7 +23,7 @@ jobs:
 
       - name: Build the project
         run: |
-          npm run build
+          CI=false npm run build
 
       - name: Clean previous build on server
         uses: appleboy/ssh-action@master
