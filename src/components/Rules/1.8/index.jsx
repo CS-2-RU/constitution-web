@@ -14,7 +14,7 @@ const Rule1p8 = () => {
                     punishment: {
                         ban: null,
                         warn: true,
-                        mute: null,
+                        mute: '2-12 часов',
                         nar: null,
                     }
                 },
@@ -22,9 +22,9 @@ const Rule1p8 = () => {
                     title: 'Случай 2 ( Normal )',
                     description: '<b>Случай 1</b> + употребление в адрес родителей высказываний* описывающих нанесение вреда здоровью, половых связий и прочих действий нарушающих рамки моральной и этической стороны*',
                     punishment: {
-                        ban: '15 дней',
+                        ban: '7-15 дней',
                         warn: null,
-                        mute: null,
+                        mute: '24 часа',
                         nar: null,
                     }
                 },
@@ -34,7 +34,7 @@ const Rule1p8 = () => {
                     punishment: {
                         ban: '60 дней',
                         warn: null,
-                        mute: null,
+                        mute: '24 часа',
                         nar: null,
                     }
                 },

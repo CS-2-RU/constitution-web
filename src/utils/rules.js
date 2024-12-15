@@ -132,13 +132,13 @@ export const rules = {
         },
     }, "Голосовые каналы": {
         "4.1": {
-            short_description: "Трансляция громких звуков",
-            element: Rule4p1,
+            short_description: "Помехи в голосовом канале",
+            element: Rule4p2,
             keywords: ['4.1']
         },
         "4.2": {
-            short_description: "Изменение голоса в голосовом канале",
-            element: Rule4p2,
+            short_description: "Трансляция звуков и голоса",
+            element: Rule4p1,
             keywords: ['4.2']
         },
         "4.3": {

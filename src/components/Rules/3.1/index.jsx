@@ -19,7 +19,7 @@ const Rule3p1 = () => {
                         title: '2',
                         punishment: {
                             mute: '24 часа',
-                            ban: '180 дней',
+                            ban: '90 дней',
                         }
                     },
                 ]} />

@@ -12,7 +12,7 @@ const Rule1p7 = () => {
                         title: '1',
                         punishment: {
                             mute: '24 часа',
-                            ban: '360 дней'
+                            ban: '180 дней'
                         }
                     }
                 ]} />

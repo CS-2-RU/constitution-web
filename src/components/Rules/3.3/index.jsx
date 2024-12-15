@@ -2,18 +2,30 @@ import React from "react";
 import Plain from "../Templates/Plain";
 import BulletPoints from "../Templates/BulletPoints";
 import Description from "../Templates/Description";
+import PunishmentTable from "../Templates/PunishmentTable";
 
 const Rule3p3 = () => {
     return (
         <div className="rule-container">
+            <PunishmentTable
+                data={[
+                    {
+                        title: '1',
+                        punishment: {
+                            mute: '4 часа',
+                            warn: true,
+                            older: true
+                        }
+                    }
+                ]} />
             <Plain content="Правило <c>3.3</c> покрывает все оставшиеся случаи, которые не попадают под список стандартных." />
             <Plain content="Использовать правило можно когда вы не уверены нарушают ли что то действия участника - в таких случаях вы можете попросить его больше не делать “подобных” действий." />
             <BulletPoints headline="Примеры:" content={[
                 "Если пользователи используют музыкального бота 5 слотом",
                 "Общение на языке кроме как русском",
-                "Ставить реакции над каждым сообщением в чата",
+                "Ставить реакции над каждым сообщением в чате",
                 "Анкета на Украинском языке - Только русский язык",
-                "Выдача за другого человека - просьба поменять ник или аватарку",
+                "Копирование профиля пользователя в Discord - просьба поменять ник или аватарку",
                 "Гифка (Сообщение) - Мать шлюха"
             ]} />
             <Plain content={`<c>3.3</c> - выдаем когда в чате/войсе, мы становимся свидетелем: <m>Ебать там на Украине круто сейчас!</m>`} />

@@ -154,6 +154,9 @@ tr:nth-child(even) {
 .punishment-key.verbal::before {
     background: #87d57b;
 }
+.punishment-key.older::before {
+    background: #586bdf;
+}
 .punishment-value {
     margin-left: 4px;
     color: #cdd4de;

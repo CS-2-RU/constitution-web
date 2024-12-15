@@ -32,6 +32,7 @@ const PunishmentTable = ({data, headline = null, afterDescription = null}) => {
                                             className="punishment-value">{row.punishment.mute}</span>
                                 </span>}
                                 {row.punishment.warn && <span className="punishment-key warn">Пред</span>}
+                                {row.punishment.older && <span className="punishment-key older">Обращение к старшей администрации</span>}
                                 {row.punishment.ban && <span className="punishment-key ban">Бан: <span
                                             className="punishment-value">{row.punishment.ban}</span>
                                 </span>}

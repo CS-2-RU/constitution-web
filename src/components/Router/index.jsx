@@ -7,7 +7,7 @@ const Router = () => {
     return(
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/rule/:ruleId" element={<RuleRenderer />} /> // Dynamic route for rules
+            <Route path="/rule/:ruleId" element={<RuleRenderer />} />
         </Routes>
     )
 }

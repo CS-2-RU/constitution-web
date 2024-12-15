@@ -11,6 +11,12 @@ const Rule1p3 = () => {
                     {
                         title: '1',
                         punishment: {
+                            verbal: true
+                        }
+                    },
+                    {
+                        title: '2',
+                        punishment: {
                             warn: true
                         }
                     }

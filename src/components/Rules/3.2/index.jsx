@@ -11,7 +11,7 @@ const Rule3p2 = () => {
                     {
                         title: '1',
                         punishment: {
-                            verbal: true
+                            nar: true
                         }
                     },
                     {
@@ -25,7 +25,7 @@ const Rule3p2 = () => {
                         title: '3',
                         punishment: {
                             mute: '24 часа',
-                            ban: '180 дней',
+                            ban: '30 дней',
                         }
                     },
                 ]} />

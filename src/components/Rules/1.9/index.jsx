@@ -13,13 +13,14 @@ const Rule1p9 = () => {
                     {
                         title: '1',
                         punishment: {
-                            verbal: true
+                            verbal: true,
+                            nar: true
                         }
                     },
                     {
                         title: '2',
                         punishment: {
-                            nar: true,
+                            warn: true,
                             mute: '2 часа'
                         }
                     },
@@ -27,16 +28,9 @@ const Rule1p9 = () => {
                         title: '3',
                         punishment: {
                             mute: '24 часа',
-                            warn: true,
+                            ban: '30 дней'
                         }
-                    },
-                    {
-                        title: '4',
-                        punishment: {
-                            mute: '24 часа',
-                            ban: '30 дней',
-                        }
-                    },
+                    }
                 ]} />
             <Plain content="Все что как либо относиться к политике." />
             <UserChat headline="Пример нарушающие правила" content={[
