@@ -25,6 +25,8 @@ import Rule4p4 from "../components/Rules/4.4";
 import Profiles from "../components/Rules/Profiles";
 import CheatCheck from "../components/Rules/CheatCheck";
 import NavigationMap from "../components/Rules/NavigationMap";
+import CommunicationScript
+    from "../components/Rules/CommunicationScript/CommunicationScript";
 
 export const rules = {
     "Основные": {
@@ -153,20 +155,25 @@ export const rules = {
         },
     },
     "Прочее": {
-        "Профили пользователей": {
+        "Профили Пользователей": {
             short_description: "Все, что связано с профилями",
             element: Profiles,
-            keywords: ['4.4']
+            keywords: ['Профили пользователей']
         },
-        "Проверка на читы": {
+        "Проверка На Читы": {
             short_description: "Все, что нужно знать про проверки",
             element: CheatCheck,
-            keywords: ['4.4']
+            keywords: ['Проверка на читы']
         },
         "Карта Навигация": {
             short_description: "Прочие важные моменты",
             element: NavigationMap,
-            keywords: ['4.4']
+            keywords: ['Карта Навигация']
+        },
+        "Скрипт Общения": {
+            short_description: "Скрипт Общения",
+            element: CommunicationScript,
+            keywords: ['Скрипт Общения']
         }
     }
 }
