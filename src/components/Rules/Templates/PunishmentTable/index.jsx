@@ -27,10 +27,8 @@ const PunishmentTable = ({data, headline = null, afterDescription = null}) => {
                                     dangerouslySetInnerHTML={{__html: row.description}}/>}
                             <td className="rule-punishment-td rule-punishment-punishment">
                             {row.punishment.verbal && <span className="punishment-key verbal">Словесное предупреждение</span>}
+                                {row.punishment.mute && <span className="punishment-key mute">Мут: <span className="punishment-value">{row.punishment.mute}</span></span>}
                                 {row.punishment.nar && <span className="punishment-key nar">Нар</span>}
-                                {row.punishment.mute && <span className="punishment-key mute">Мут: <span
-                                            className="punishment-value">{row.punishment.mute}</span>
-                                </span>}
                                 {row.punishment.warn && <span className="punishment-key warn">Пред</span>}
                                 {row.punishment.older && <span className="punishment-key older">Обращение к старшей администрации</span>}
                                 {row.punishment.ban && <span className="punishment-key ban">Бан: <span

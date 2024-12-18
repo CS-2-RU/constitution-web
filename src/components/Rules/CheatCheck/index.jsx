@@ -19,8 +19,8 @@ const CheatCheck = () => {
             <Plain content="Копируешь её и отправляешь пользователю в лс, в случае отказа или игнора в течении:" />
             <BulletPoints headline={null} content={[
                 "<b>24-ёх</b> часов, если у человека статус <soff>Не в сети</soff> или <si>Неактивен</si>",
-                "<b>6-ти</b> часов, если у человека статус <sdnd>Не беспокоить</sdnd>",
-                "<b>4-ёх</b> часов, если у человека статус <son>В сети</son>",
+                "<b>20-ти</b> часов, если у человека статус <sdnd>Не беспокоить</sdnd>",
+                "<b>10-ёх</b> часов, если у человека статус <son>В сети</son>",
             ]} />
             <Plain content="Нужно выдать наказание по <c>1.4</c>, если же он соглашается на проверку, зовете его в лс, или админский приват, и тщательно его проверяешь." />
             <Plain content="После того, как человек зашел к вам, выполняем дальнейшие действия:" />
@@ -38,15 +38,15 @@ const CheatCheck = () => {
                 "Просим посетить популярные сайты сайты скидывая ссылки в лс пользователю",
                 "Ссылки: <br>" +
                 "<c>https://xone.fun/login</c> <br>" +
-                "<c>https://interium.ooo/forum/member.php?action=login</c> <br>" +
-                "<c>https://www.aurora-project.ru/login</c> <br>" +
-                "<c>https://freeqn.net/login</c> <br>" +
                 "<c>https://spirthack.me/?redir=me%3F</c> <br>" +
-                "<c>https://midnight.im/login</c> <br>" +
-                "<c>https://nixware.cc/login</c> <br>" +
+                "<c>https://midnight.im/login/</c> <br>" +
+                "<c>https://nixware.cc/login/</c> <br>" +
                 "<c>https://neverlose.cc/?ysclid=loisjws8nj591473958</c> <br>" +
-                "<c>https://furios.gg/sign-in</c> <br>" +
-                "<c>https://phoenix-hack.com/t/phoenix-cs-go</c>",
+                "<c>https://unk.is/</c> <br>" +
+                "<c>https://sapphire-project.ru/home/</c> <br>" +
+                "<c>https://inventory-changer.com/</c> <br>" +
+                "<c>https://cs2skinchanger.com/</c> <br>" +
+                "<c>https://undetek.com/product/external-skin-changer/</c>",
                 "<m>Win+i</m> -> <m>безопасность Windows</m> -> <m>защита от вируса и угроз</m> -> <m>управление настройками</m> -> <m>исключения (добавление или удаление исключений)</m>",
                 "Просматриваем процессы и папки добавленные в исключения",
                 "По очереди пускай перекинет эти 2 файла на нижнюю панель.",
