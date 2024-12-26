@@ -37,6 +37,14 @@ body {
 
 main {
     margin-top: var(--header-height);
+    flex: 1;
+    display: flex;
+}
+.content {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 button {
     all: unset;

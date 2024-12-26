@@ -12,7 +12,12 @@ const Rule1p1 = () => {
                     {
                         title: '1',
                         punishment: {
-                            verbal: true
+                            verbal: true,
+                            mute: '10 дней',
+                            nar: true,
+                            warn: true,
+                            timeout: '10 дней',
+                            localban: '10 дней'
                         }
                     },
                     {

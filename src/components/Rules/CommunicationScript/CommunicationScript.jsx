@@ -1,6 +1,4 @@
 import React from 'react';
-import Plain from "../Templates/Plain";
-import Description from "../Templates/Description";
 import BulletPoints from "../Templates/BulletPoints";
 
 const CommunicationScript = () => {

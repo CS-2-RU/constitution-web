@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import {RuleModalProvider} from "./utils/providers/RuleModalProvider";
+import {DiscordProvider} from "./context/Discord";
 
 const root = ReactDOM.createRoot(document.querySelector('body'));
 root.render(
-    <BrowserRouter>
-        <RuleModalProvider>
-            <App/>
-        </RuleModalProvider>
-    </BrowserRouter>
+    <DiscordProvider>
+        <BrowserRouter>
+            <RuleModalProvider>
+                <App/>
+            </RuleModalProvider>
+        </BrowserRouter>
+    </DiscordProvider>
 );
 
 reportWebVitals();

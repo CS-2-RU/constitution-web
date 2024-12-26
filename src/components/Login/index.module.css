@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    background: var(--blue-color-1);
+    color: var(--bg-color);
+    font-weight: 600;
+    font-size: 1.25rem;
+    border-radius: var(--border-radius-1);
+    padding: 8px 20px;
+    transition-duration: 0.2s;
+}
+.button:hover {
+    background: var(--blue-color-2);
+}

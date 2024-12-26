@@ -26,22 +26,18 @@ const PunishmentTable = ({data, headline = null, afterDescription = null}) => {
                             {isDescription && <td className="rule-punishment-td rule-punishment-description"
                                     dangerouslySetInnerHTML={{__html: row.description}}/>}
                             <td className="rule-punishment-td rule-punishment-punishment">
-                            {row.punishment.verbal && <span className="punishment-key verbal">Словесное предупреждение</span>}
+                                {row.punishment.verbal && <span className="punishment-key verbal">Словесное предупреждение</span>}
                                 {row.punishment.mute && <span className="punishment-key mute">Мут: <span className="punishment-value">{row.punishment.mute}</span></span>}
-                                {row.punishment.nar && <span className="punishment-key nar">Нар</span>}
                                 {row.punishment.warn && <span className="punishment-key warn">Пред</span>}
+                                {row.punishment.timeout && <span className="punishment-key timeout">Таймаут: <span className="punishment-value">{row.punishment.timeout}</span></span>}
+                                {row.punishment.localban && <span className="punishment-key ban">Бан: <span className="punishment-value">{row.punishment.localban}</span></span>}
                                 {row.punishment.older && <span className="punishment-key older">Обращение к старшей администрации</span>}
-                                {row.punishment.ban && <span className="punishment-key ban">Бан: <span
-                                            className="punishment-value">{row.punishment.ban}</span>
-                                </span>}
                             </td>
                         </tr>
                     ))}
                 </table>
             }
-            {afterDescription &&
-                <span className="rule-after-decsription"
-                      dangerouslySetInnerHTML={{__html: afterDescription}}></span>}
+            {afterDescription && <span className="rule-after-decsription" dangerouslySetInnerHTML={{__html: afterDescription}}></span>}
         </div>
     )
 }

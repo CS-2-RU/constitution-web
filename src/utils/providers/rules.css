@@ -157,6 +157,9 @@ tr:nth-child(even) {
 .punishment-key.older::before {
     background: #586bdf;
 }
+.punishment-key.timeout::before {
+    background: #8e58df;
+}
 .punishment-value {
     margin-left: 4px;
     color: #cdd4de;
