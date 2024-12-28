@@ -11,8 +11,13 @@ const Rule4p4 = () => {
                     {
                         title: '1',
                         punishment: {
-                            timeout: '2 часа',
                             warn: true,
+                        }
+                    },
+                    {
+                        title: '2',
+                        punishment: {
+                            timeout: '2 часа',
                         }
                     },
                 ]} />

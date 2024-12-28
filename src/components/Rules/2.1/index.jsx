@@ -27,7 +27,7 @@ const Rule2p1 = () => {
                     {
                         title: '1',
                         punishment: {
-                            mute: '2 часа',
+                            timeout: '2 часа',
                             warn: true
                         }
                     }
