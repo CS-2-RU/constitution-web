@@ -29,7 +29,7 @@ const Rule1p8 = () => {
                     title: 'Случай 3 ( Hard )',
                     description: '<b>Случай 2</b> + употребление в адрес родителей высказываний которые содержат случаи летального исхода',
                     punishment: {
-                        localban: '90 дней',
+                        localban: '30 дней',
                         warn: null,
                         nar: null,
                     }
