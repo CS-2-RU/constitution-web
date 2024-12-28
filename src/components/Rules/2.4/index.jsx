@@ -12,7 +12,7 @@ const Rule2p4 = () => {
                     {
                         title: '1',
                         punishment: {
-                            localban: '360 дней'
+                            localban: '365 дней'
                         }
                     }
                 ]} />
