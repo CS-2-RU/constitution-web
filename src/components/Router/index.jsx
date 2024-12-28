@@ -9,26 +9,26 @@ import NoAccess from "../NoAccess/NoAccess";
 const Router = () => {
     const { auth, canAccess } = useDiscord();
 
-    return (
-        <Routes>
-            {!auth && <Route path="/login" element={<Login />} />}
-            {auth ? (
-                <>
-                    <Route path="/" element={canAccess ? <Home /> : <NoAccess />} />
-                    <Route path="/rule/:ruleId" element={canAccess ? <RuleRenderer /> : <NoAccess />} />
-                    <Route path="/login" element={<Navigate to="/" replace />} />
-                </>
-            ) : (
-                <Route path="*" element={<Navigate to="/login" replace />} />
-            )}
-        </Routes>
-    );
     // return (
     //     <Routes>
-    //         <Route path="/" element={<Home />} />
-    //         <Route path="/rule/:ruleId" element={<RuleRenderer />} />
+    //         {!auth && <Route path="/login" element={<Login />} />}
+    //         {auth ? (
+    //             <>
+    //                 <Route path="/" element={canAccess ? <Home /> : <NoAccess />} />
+    //                 <Route path="/rule/:ruleId" element={canAccess ? <RuleRenderer /> : <NoAccess />} />
+    //                 <Route path="/login" element={<Navigate to="/" replace />} />
+    //             </>
+    //         ) : (
+    //             <Route path="*" element={<Navigate to="/login" replace />} />
+    //         )}
     //     </Routes>
     // );
+    return (
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/rule/:ruleId" element={<RuleRenderer />} />
+        </Routes>
+    );
 };
 
 export default Router;
