@@ -22,7 +22,6 @@ const Rule1p8 = () => {
                     punishment: {
                         localban: '7-15 дней',
                         warn: null,
-                        timeout: '24 часа',
                         nar: null,
                     }
                 },
@@ -32,7 +31,6 @@ const Rule1p8 = () => {
                     punishment: {
                         localban: '60 дней',
                         warn: null,
-                        timeout: '24 часа',
                         nar: null,
                     }
                 },

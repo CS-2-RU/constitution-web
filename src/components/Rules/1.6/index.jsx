@@ -12,7 +12,6 @@ const Rule1p6 = () => {
                     {
                         title: '1',
                         punishment: {
-                            timeout: '24 часа',
                             localban: '9999д (твинк) +30 дней (основной)'
                         }
                     }

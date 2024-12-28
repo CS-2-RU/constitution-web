@@ -18,7 +18,6 @@ const Rule3p1 = () => {
                     {
                         title: '2',
                         punishment: {
-                            timeout: '24 часа',
                             localban: '90 дней',
                         }
                     },

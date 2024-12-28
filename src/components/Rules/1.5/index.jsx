@@ -11,7 +11,6 @@ const Rule1p5 = () => {
                     {
                         title: '1',
                         punishment: {
-                            timeout: '24 часа',
                             localban: '90 дней'
                         }
                     }

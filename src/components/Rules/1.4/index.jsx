@@ -13,7 +13,6 @@ const Rule1p4 = () => {
                     {
                         title: '1',
                         punishment: {
-                            timeout: '24 часа',
                             localban: '90 дней'
                         }
                     }

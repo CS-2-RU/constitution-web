@@ -12,7 +12,6 @@ const Rule2p1 = () => {
                     {
                         title: '1',
                         punishment: {
-                            timeout: '24 часа',
                             localban: '30 дней (360 дней если реклама дискорд серверов)'
                         }
                     }

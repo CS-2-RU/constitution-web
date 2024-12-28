@@ -12,7 +12,6 @@ const Rule1p10 = () => {
                     {
                         title: '1',
                         punishment: {
-                            timeout: '24 часа',
                             localban: '360 дней'
                         }
                     }

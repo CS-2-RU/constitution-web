@@ -24,7 +24,6 @@ const Rule2p3 = () => {
                     {
                         title: '3',
                         punishment: {
-                            timeout: '24 часа',
                             localban: '30 дней',
                         }
                     },
