@@ -30,7 +30,7 @@ const PunishmentTable = ({data, headline = null, afterDescription = null}) => {
                                 {row.punishment.mute && <span className="punishment-key mute">Мут: <span className="punishment-value">{row.punishment.mute}</span></span>}
                                 {row.punishment.warn && <span className="punishment-key warn">Пред</span>}
                                 {row.punishment.timeout && <span className="punishment-key timeout">Таймаут: <span className="punishment-value">{row.punishment.timeout}</span></span>}
-                                {row.punishment.localban && <span className="punishment-key ban">Бан: <span className="punishment-value">{row.punishment.localban}</span></span>}
+                                {row.punishment.localban && <span className="punishment-key ban">Локал Бан: <span className="punishment-value">{row.punishment.localban}</span></span>}
                                 {row.punishment.older && <span className="punishment-key older">Обращение к старшей администрации</span>}
                             </td>
                         </tr>

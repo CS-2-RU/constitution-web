@@ -75,6 +75,9 @@
 .rule-chat-user.user-b {
     color: #93ff7b
 }
+.rule-chat-user.user-c {
+    color: #7ba9ff
+}
 .rule-chat-message {
     background: var(--block-1);
     padding: 4px 8px;

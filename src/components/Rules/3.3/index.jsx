@@ -12,7 +12,7 @@ const Rule3p3 = () => {
                     {
                         title: '1',
                         punishment: {
-                            mute: '4 часа',
+                            timeout: '4 часа',
                             warn: true,
                             older: true
                         }

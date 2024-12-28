@@ -1,6 +1,8 @@
 import React from "react";
 import Plain from "../Templates/Plain";
 import PunishmentTable from "../Templates/PunishmentTable";
+import BulletPoints from "../Templates/BulletPoints";
+import Description from "../Templates/Description";
 
 const Rule2p4 = () => {
     return (
@@ -10,12 +12,16 @@ const Rule2p4 = () => {
                     {
                         title: '1',
                         punishment: {
-                            mute: '24 часа',
-                            ban: '360 дней'
+                            timeout: '24 часа',
+                            localban: '360 дней'
                         }
                     }
                 ]} />
-            <Plain content="В этот пункт правил включаются действия направленные на воровство собственной аудитории CS:GO RU, те активный пиар серверов с аналогичной тематикой, как непосредственно на сервере, так и в лс." />
+            <Description keyN="<b>Переманивание участников сервера</b>" headline={null}
+                         valueN=" - это действия направленные на воровство собственной целевой аудитории CS2 RU, то есть активное продвижение сервера с аналогичной тематикой нашего сервера."/>
+            <BulletPoints headline="Пример:" content={[
+                "<m>Заходите на сервер LFG Clan | FACEIT | CIS | CS2, наш сервер лучший по поиску игроков!</m>"
+            ]} />
         </div>
     )
 }

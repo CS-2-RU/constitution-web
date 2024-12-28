@@ -19,15 +19,13 @@ const Rule1p2 = () => {
                     {
                         title: '2',
                         punishment: {
-                            nar: true,
-                            mute: '10 минут',
+                            warn: true,
                         }
                     },
                     {
                         title: '3',
                         punishment: {
-                            warn: true,
-                            mute: '2 часа',
+                            timeout: '2 часа',
                         }
                     }
                 ]} />

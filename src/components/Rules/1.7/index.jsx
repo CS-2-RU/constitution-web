@@ -11,8 +11,8 @@ const Rule1p7 = () => {
                     {
                         title: '1',
                         punishment: {
-                            mute: '24 часа',
-                            ban: '180 дней'
+                            timeout: '24 часа',
+                            localban: '180 дней'
                         }
                     }
                 ]} />
