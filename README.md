@@ -1,16 +1,9 @@
-## Запустить проект
+## Dirs
 
-1. Скачать [Node.js](https://nodejs.org/en/download/prebuilt-installer)
-2. Открыть папку в консоли через `cd ...`
-3. В консоль `npm i`
-4. В консоль `npm start`
+- Rules: `src/components/Rules`
+- ID's: `src/utils/ids.js`
 
-## Файлы и папки
-
-- Все правила: `src/components/Rules`
-- ID для логина: `src/utils/ids.js`
-
-## Возможные наказания
+## Possible punishments
 
 ```js
 punishment: {
