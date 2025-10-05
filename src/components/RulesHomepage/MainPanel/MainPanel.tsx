@@ -21,6 +21,22 @@ export default function MainPanel({ rules, categoryName }: MainPanelProps) {
         }).join(', ')
     }
 
+    const formatActionType = (type: string) => {
+        switch (type) {
+            case 'VERBAL':
+                return 'Словестное'
+            case 'WARN':
+                return 'Пред'
+            case 'TIMEOUT':
+                return 'Таймаут'
+            case 'LOCALBAN':
+                return 'Локал Бан'
+            default:
+                return type
+        }
+    }
+
+
     if (!categoryName) {
         return (
             <div>
@@ -58,13 +74,13 @@ export default function MainPanel({ rules, categoryName }: MainPanelProps) {
                                         {rule.punishments.length > 0 && rule.punishments[0].actions.map((action) => (
                                             <div className={styles.punishment} key={action.id}>
                                                 <div className={styles.action + ' ' + styles[action.type.toLocaleLowerCase()]}></div>
-                                                <span>{action.type.toLocaleLowerCase()}{action.duration && <span>: {action.duration}</span>}</span>
+                                                <span>{formatActionType(action.type)} {action.duration && <span>: {action.duration}</span>}</span>
                                             </div>
                                         ))}
 
                                         {rule.punishments.length > 1 && (
                                             <div className={styles.more}>
-                                                +{rule.punishments.length - 1} more punishment{rule.punishments.length > 2 ? 's' : ''}
+                                                +{rule.punishments.length - 1} наказани{rule.punishments.length > 2 ? 'й' : 'e'}
                                             </div>
                                         )}
                                     </div>
