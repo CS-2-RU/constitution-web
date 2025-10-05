@@ -36,6 +36,22 @@ export default function MainPanel({ rules, categoryName }: MainPanelProps) {
         }
     }
 
+    // Natural sort function for rule numbers
+    const sortRules = (a: Rule, b: Rule) => {
+        const aParts = a.rule.split('.').map(Number)
+        const bParts = b.rule.split('.').map(Number)
+
+        for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+            const aNum = aParts[i] || 0
+            const bNum = bParts[i] || 0
+
+            if (aNum !== bNum) {
+                return aNum - bNum
+            }
+        }
+
+        return 0
+    }
 
     if (!categoryName) {
         return (
@@ -45,15 +61,18 @@ export default function MainPanel({ rules, categoryName }: MainPanelProps) {
         )
     }
 
+    // Sort rules before rendering
+    const sortedRules = [...rules].sort(sortRules)
+
     return (
         <div className={styles.main}>
-            {rules.length === 0 ? (
+            {sortedRules.length === 0 ? (
                 <div>
                     <p>В текущей категории нет правил.</p>
                 </div>
             ) : (
                 <div className={styles.container}>
-                    {rules.map((rule) => (
+                    {sortedRules.map((rule) => (
                         <button
                             className={styles.rule}
                             key={rule.id}
