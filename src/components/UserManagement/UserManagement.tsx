@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Shield, User, Crown, Ban, AlertCircle, Calendar, Mail, MessageSquare } from 'lucide-react'
+import { Shield, User, Crown, Ban, AlertCircle, Calendar, Mail, MessageSquare, Trash2 } from 'lucide-react'
 import styles from './index.module.css'
 
 type User = {
@@ -52,6 +52,7 @@ const getRoleColor = (role: string) => {
 
 export default function UserManagement({ users, currentUserRole, currentUserId }: Props) {
     const [isUpdating, setIsUpdating] = useState<string | null>(null)
+    const [isDeleting, setIsDeleting] = useState<string | null>(null)
     const [error, setError] = useState<string | null>(null)
 
     const canModifyUser = (targetUser: User) => {
@@ -105,6 +106,39 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
             setError(err instanceof Error ? err.message : 'An error occurred')
         } finally {
             setIsUpdating(null)
+        }
+    }
+
+    const deleteUser = async (userId: string, userEmail: string) => {
+        if (!confirm(`Are you sure you want to delete user "${userEmail}"? This action cannot be undone.`)) {
+            return
+        }
+
+        setIsDeleting(userId)
+        setError(null)
+
+        try {
+            const response = await fetch('/api/users/delete', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId,
+                }),
+            })
+
+            if (!response.ok) {
+                const errorData = await response.json()
+                throw new Error(errorData.error || 'Failed to delete user')
+            }
+
+            // Simulating router.refresh()
+            window.location.reload()
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'An error occurred')
+        } finally {
+            setIsDeleting(null)
         }
     }
 
@@ -212,6 +246,15 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
                                                 {isUpdating === user.id ? 'Updating...' : role}
                                             </button>
                                         ))}
+                                        <button
+                                            onClick={() => deleteUser(user.id, user.email)}
+                                            disabled={isDeleting === user.id || user.id === currentUserId}
+                                            className={`${styles.actionButton} ${styles.deleteButton}`}
+                                            title={user.id === currentUserId ? "You cannot delete yourself" : "Delete user"}
+                                        >
+                                            <Trash2 size={14} />
+                                            {isDeleting === user.id ? 'Deleting...' : 'Delete'}
+                                        </button>
                                     </div>
                                 ) : (
                                     <span className={styles.noPermissions}>No permissions</span>
