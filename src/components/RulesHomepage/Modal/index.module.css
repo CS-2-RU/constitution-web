@@ -81,7 +81,7 @@
     flex: 1;
 }
 .left {
-    min-width: 300px;
+    min-width: 330px;
     padding: 2em;
     display: flex;
     flex-direction: column;
@@ -118,6 +118,7 @@
 }
 .table th:nth-child(1) {
     border-radius: var(--radius-3) 0 0 var(--radius-3);
+    padding-right: 0;
 }
 .table th:nth-last-child(1) {
     border-radius: 0 var(--radius-3) var(--radius-3) 0;
@@ -135,6 +136,7 @@
 .row td:nth-child(1) {
     color: var(--color-primary);
     border-right: none;
+    padding-right: 0;
     border-radius: var(--radius-3) 0 0 var(--radius-3);
 }
 .row td:nth-child(2) {
@@ -178,5 +180,6 @@
 .punishment {
     display: flex;
     gap: 0.5em;
+    align-items: center;
     text-align: left;
 }
