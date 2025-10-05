@@ -149,6 +149,7 @@
 .circle {
     height: 14px;
     width: 14px;
+    min-width: 14px;
     border-radius: 50%;
     background: #000;
     box-shadow: 0 0 6px 1px;
@@ -178,5 +179,4 @@
     display: flex;
     gap: 0.5em;
     text-align: left;
-    white-space: nowrap;
 }
