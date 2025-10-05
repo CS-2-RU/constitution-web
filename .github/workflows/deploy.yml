@@ -47,15 +47,15 @@ jobs:
             fi
             
             # Install deps
-            npm install
+            pnpm install
             
             # Generate Prisma Client
             echo "Generating Prisma Client..."
-            npm prisma generate
+            pnpm prisma generate
             
             # Run migrations
             echo "Running database migrations..."
-            npm prisma migrate deploy
+            pnpm prisma migrate deploy
             
             # Delete old build
             rm -rf .next
