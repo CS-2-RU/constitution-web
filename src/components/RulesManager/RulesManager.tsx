@@ -73,6 +73,23 @@ const getActionIcon = (type: string) => {
     }
 }
 
+// Natural sort function for rule numbers
+const sortRulesByNumber = (a: Rule, b: Rule) => {
+    const aParts = a.rule.split('.').map(Number)
+    const bParts = b.rule.split('.').map(Number)
+
+    for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+        const aNum = aParts[i] || 0
+        const bNum = bParts[i] || 0
+
+        if (aNum !== bNum) {
+            return aNum - bNum
+        }
+    }
+
+    return 0
+}
+
 export default function RulesManager({ initialRules, initialCategories }: Props) {
     const [rules, setRules] = useState<Rule[]>(initialRules)
     const [categories, setCategories] = useState<Category[]>(initialCategories)
@@ -107,6 +124,11 @@ export default function RulesManager({ initialRules, initialCategories }: Props)
         acc[categoryName].push(rule)
         return acc
     }, {} as Record<string, Rule[]>)
+
+    // Sort rules within each category
+    Object.keys(rulesByCategory).forEach(categoryName => {
+        rulesByCategory[categoryName].sort(sortRulesByNumber)
+    })
 
     const sortedCategories = [...categories].sort((a, b) => a.index - b.index)
 
