@@ -26,10 +26,10 @@ jobs:
             
             export PNPM_HOME="$HOME/.local/share/pnpm"
             export PATH="$PNPM_HOME:$PATH"
-            
+          
             
             BRANCH_NAME="${{ steps.branch_name.outputs.branch }}"
-            PROJECT_DIR="/root/web/constitution.cs2ru.online/"
+            PROJECT_DIR="/root/constitution.cs2ru.online/"
             
             # Create project directory if it doesn't exist
             mkdir -p "${PROJECT_DIR}"
