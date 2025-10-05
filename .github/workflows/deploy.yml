@@ -63,7 +63,7 @@ jobs:
             
             # Build project
             echo "Building project..."
-            pnpm run build
+            npm run build
             
             # Restart pm2
             pm2 startOrReload ecosystem.config.js
