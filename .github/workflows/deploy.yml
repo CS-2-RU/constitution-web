@@ -23,51 +23,50 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             # Set variables
-            
             export PNPM_HOME="$HOME/.local/share/pnpm"
             export PATH="$PNPM_HOME:$PATH"
-          
             
             BRANCH_NAME="${{ steps.branch_name.outputs.branch }}"
-            PROJECT_DIR="/root/constitution.cs2ru.online/"
-            
-            # Create project directory if it doesn't exist
-            mkdir -p "${PROJECT_DIR}"
+            PROJECT_DIR="/root/constitution.cs2ru.online"
             
             # Navigate to project directory
-            cd "${PROJECT_DIR}"
+            cd "${PROJECT_DIR}" || { mkdir -p "${PROJECT_DIR}" && cd "${PROJECT_DIR}"; }
             
-            # Clone if doesn't exist, otherwise just pull
+            # Check if it's a git repo
             if [ ! -d ".git" ]; then
-              echo "First time setup - cloning repository..."
-              git clone --single-branch --branch constitution-next.krvvko.me git@github.com:CS-2-RU/constitution-web.git .
+              echo "Not a git repository. Cleaning and cloning..."
+              cd ..
+              rm -rf "${PROJECT_DIR}"
+              git clone --single-branch --branch "${BRANCH_NAME}" git@github.com:CS-2-RU/constitution-web.git "${PROJECT_DIR}"
+              cd "${PROJECT_DIR}"
+            else
+              echo "Git repository exists. Pulling latest changes..."
+              git fetch origin
+              git checkout "${BRANCH_NAME}"
+              git pull origin "${BRANCH_NAME}"
             fi
             
-            # Pull latest changes
-            echo "Pulling latest changes for branch ${BRANCH_NAME}..."
-            git checkout "${BRANCH_NAME}"
-            git pull origin "${BRANCH_NAME}"
-            
             # Install deps
-            npm install
+            pnpm install
             
+            # Generate Prisma Client
             echo "Generating Prisma Client..."
-            npm prisma generate
+            pnpm prisma generate
             
             # Run migrations
             echo "Running database migrations..."
-            npm prisma migrate dev --name init
-            
+            pnpm prisma migrate deploy
             
             # Delete old build
             rm -rf .next
             rm -rf node_modules/.cache
             
             # Build project
-            npm run build
+            pnpm run build
             
-            # restart pm2
+            # Restart pm2
             pm2 startOrReload ecosystem.config.js
             pm2 save
             pm2 status
+            
             echo "Deployment completed successfully!"
