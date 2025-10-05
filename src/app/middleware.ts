@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { auth } from '@/lib/auth'
-import { prisma } from '@/lib/prisma' // Adjust to your Prisma client path
+import { prisma } from '@/lib/prisma'
 
 export async function middleware(request: NextRequest) {
     const session = await auth()
@@ -79,4 +79,5 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: ['/((?!api|_next/static|_next/image|favicon.ico|auth).*)'],
+    runtime: 'nodejs',
 }
