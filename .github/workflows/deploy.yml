@@ -47,7 +47,7 @@ jobs:
             fi
             
             # Install deps
-            pnpm install --frozen-lockfile
+            pnpm install
             
             # Generate Prisma Client
             echo "Generating Prisma Client..."
@@ -63,7 +63,7 @@ jobs:
             
             # Build project
             echo "Building project..."
-            NODE_ENV=production pnpm run build
+            pnpm run build
             
             # Restart pm2
             pm2 startOrReload ecosystem.config.js

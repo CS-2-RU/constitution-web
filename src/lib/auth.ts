@@ -22,15 +22,23 @@ export const {
             if (!user?.email) return false;
 
             if (account?.provider === "discord" && profile) {
-                if (user.id) {
-                    await prisma.user.update({
-                        where: { id: user.id },
-                        data: {
-                            discordId: profile.id as string,
-                            discordUsername: profile.username as string,
-                        },
-                    });
-                }
+                await prisma.user.upsert({
+                    where: { email: user.email },
+                    update: {
+                        discordId: profile.id as string,
+                        discordUsername: profile.username as string,
+                    },
+                    create: {
+                        email: user.email,
+                        // @ts-ignore
+                        name: profile.global_name || profile.username,
+                        image: profile.avatar
+                            ? `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.png`
+                            : null,
+                        discordId: profile.id as string,
+                        discordUsername: profile.username as string,
+                    },
+                });
             }
 
             return true;
