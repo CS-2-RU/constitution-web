@@ -24,7 +24,12 @@ const Header = async () => {
             <div className={styles.right}>
                 {user ? (
                     <>
-                        {(user.role === 'ADMIN' || user.role === 'SUPERADMIN') && (
+                        {(user.role === 'ADMIN') && (
+                            <div className={styles.links}>
+                                <Link className={styles.link + ' ' + styles.button} href="/users">Manage Users</Link>
+                            </div>
+                        )}
+                        {(user.role === 'SUPERADMIN') && (
                             <div className={styles.links}>
                                 <Link className={styles.link + ' ' + styles.button} href="/users">Manage Users</Link>
                                 <Link className={styles.link + ' ' + styles.button} href="/rules-edit">Manage Rules</Link>
