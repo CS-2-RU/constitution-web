@@ -1,0 +1,48 @@
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+}
+.button {
+    all: unset;
+    cursor: pointer;
+    color: var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75em;
+    border: 2px solid var(--color-primary);
+    padding: 0.75em 1.5em;
+    border-radius: var(--radius-2);
+    transition-duration: 0.2s;
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+.button > img {
+    height: 32px;
+}
+.button:hover {
+    background-color: rgba(76, 76, 228, 0.05);
+}
+
+.close {
+    all: unset;
+    cursor: pointer;
+    color: var(--red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75em;
+    border: 2px solid var(--red);
+    padding: 0.75em 1.5em;
+    border-radius: var(--radius-2);
+    transition-duration: 0.2s;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.close:hover {
+    background-color: rgba(235, 56, 56, 0.05);
+}

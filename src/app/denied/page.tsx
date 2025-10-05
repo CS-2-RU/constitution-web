@@ -1,5 +1,6 @@
 import { auth, signOut } from "@/lib/auth"
 import { redirect } from "next/navigation"
+import styles from './../auth/index.module.css';
 
 export default async function DeniedPage() {
     const session = await auth()
@@ -15,26 +16,10 @@ export default async function DeniedPage() {
     }
 
     return (
-        <div>
-            <h1>Access Denied</h1>
+        <div className={styles.container}>
+            <h1>Wait For Access To Be Granted</h1>
             <p>Your account is pending approval. Please wait for an administrator to approve your access.</p>
             <p>User: {user.name || user.email}</p>
-            <p>Status: {user.role}</p>
-
-            {/*<button onClick={() => window.location.reload()}>*/}
-            {/*    Refresh Page*/}
-            {/*</button>*/}
-
-            <form
-                action={async () => {
-                    "use server"
-                    await signOut({ redirectTo: "/auth" })
-                }}
-            >
-                <button type="submit">
-                    Sign out
-                </button>
-            </form>
         </div>
     )
 }
