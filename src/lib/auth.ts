@@ -22,13 +22,15 @@ export const {
             if (!user?.email) return false;
 
             if (account?.provider === "discord" && profile) {
-                await prisma.user.update({
-                    where: { email: user.email },
-                    data: {
-                        discordId: profile.id as string,
-                        discordUsername: profile.username as string,
-                    },
-                });
+                if (user.id) {
+                    await prisma.user.update({
+                        where: { id: user.id },
+                        data: {
+                            discordId: profile.id as string,
+                            discordUsername: profile.username as string,
+                        },
+                    });
+                }
             }
 
             return true;
