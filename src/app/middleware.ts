@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { auth } from '@/lib/auth'
+import { prisma } from '@/lib/prisma' // Adjust to your Prisma client path
 
 export async function middleware(request: NextRequest) {
     const session = await auth()
@@ -22,6 +23,28 @@ export async function middleware(request: NextRequest) {
             return NextResponse.redirect(new URL('/', request.url))
         }
         return NextResponse.next()
+    }
+
+    // If user has a session, verify they still exist in the database
+    if (session?.user?.email) {
+        try {
+            const userExists = await prisma.user.findUnique({
+                where: { email: session.user.email },
+                select: { id: true }
+            })
+
+            // If user doesn't exist (was deleted), sign them out
+            if (!userExists) {
+                const response = NextResponse.redirect(new URL('/auth', request.url))
+                // Clear session cookies
+                response.cookies.delete('authjs.session-token')
+                response.cookies.delete('__Secure-authjs.session-token')
+                return response
+            }
+        } catch (error) {
+            console.error('Error checking user existence:', error)
+            // On error, allow request to continue to avoid breaking the site
+        }
     }
 
     // If trying to access a protected route without authentication

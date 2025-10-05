@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import {auth} from "@/lib/auth";
+import {auth} from "@/lib/auth"; // Adjust path to your Prisma client
 
 export async function DELETE(request: Request) {
     try {
@@ -13,6 +13,7 @@ export async function DELETE(request: Request) {
             )
         }
 
+        // Get current user
         const currentUser = await prisma.user.findUnique({
             where: { email: session.user.email },
             select: { id: true, role: true }
@@ -78,9 +79,19 @@ export async function DELETE(request: Request) {
 
         // SUPERADMIN can delete anyone (except themselves, already checked)
 
-        // Delete user (cascade will handle related records based on Prisma schema)
-        await prisma.user.delete({
-            where: { id: userId }
+        // Delete user in a transaction
+        // Audit logs will be preserved with userId set to null (via onDelete: SetNull)
+        await prisma.$transaction(async (tx) => {
+            // Delete related accounts
+            await tx.account.deleteMany({
+                where: { userId: userId }
+            })
+
+            // Delete the user
+            // RuleAuditLogs will have their userId set to null automatically
+            await tx.user.delete({
+                where: { id: userId }
+            })
         })
 
         return NextResponse.json(
