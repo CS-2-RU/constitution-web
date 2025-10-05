@@ -31,7 +31,6 @@
 }
 .top > h3 {
     font-weight: 500;
-    text-transform: capitalize;
 }
 .punishments {
     display: flex;
@@ -76,7 +75,7 @@
     box-shadow: 0 0 9px 0 rgb(50, 180, 50, 0.6);
 }
 .more {
-    margin-top: 0.5em;
+    margin-top: 0.15em;
     font-size: 0.9rem;
     color: var(--color-3);
 }
