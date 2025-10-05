@@ -40,7 +40,7 @@ jobs:
             # Clone if doesn't exist, otherwise just pull
             if [ ! -d ".git" ]; then
               echo "First time setup - cloning repository..."
-              git clone --single-branch --branch "${BRANCH_NAME}" git@github.com:krvvko/git-NSM-upload.git .
+              git clone --single-branch --branch constitution-next.krvvko.me git@github.com:CS-2-RU/constitution-web.git .
             fi
             
             # Pull latest changes
