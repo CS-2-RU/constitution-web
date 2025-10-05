@@ -27,6 +27,7 @@ import {
 import styles from './index.module.css'
 import '@/utils/custom-directive/github-markdown.css'
 import "@/utils/custom-directive/index.css";
+import {customDirectives} from "@/utils/custom-directive";
 
 type Action = {
     id: string
@@ -359,7 +360,7 @@ export default function RuleEditor({ rule, categories }: Props) {
                     <div className={styles.editorColumn}>
                         <div className={styles.editorHeader}>
                             <Edit3 size={16} />
-                            <h4>Edit</h4>
+                            <h4>Редактировать</h4>
                         </div>
                         {/*// @ts-ignore*/}
                         <textarea onScroll={() => handleScroll(contentTextareaRef, contentPreviewRef)}
@@ -373,11 +374,11 @@ export default function RuleEditor({ rule, categories }: Props) {
                     <div className={styles.editorColumn}>
                         <div className={styles.editorHeader}>
                             <Eye size={16} />
-                            <h4>Preview</h4>
+                            <h4>Предпросмотр</h4>
                         </div>
                         <div ref={contentPreviewRef} className={`markdown-body ${styles.preview}`}>
                             <ReactMarkdown
-                                remarkPlugins={[remarkGfm, remarkBreaks, remarkDirective]}
+                                remarkPlugins={[remarkGfm, remarkBreaks, remarkDirective, customDirectives]}
                                 rehypePlugins={[rehypeRaw]}
                             >
                                 {editData.content}
@@ -393,7 +394,7 @@ export default function RuleEditor({ rule, categories }: Props) {
                     <div className={styles.editorColumn}>
                         <div className={styles.editorHeader}>
                             <Edit3 size={16} />
-                            <h4>Edit</h4>
+                            <h4>Редактировать</h4>
                         </div>
                         {/*// @ts-ignore*/}
                         <textarea onScroll={() => handleScroll(examplesTextareaRef, examplesPreviewRef)}
@@ -407,11 +408,11 @@ export default function RuleEditor({ rule, categories }: Props) {
                     <div className={styles.editorColumn}>
                         <div className={styles.editorHeader}>
                             <Eye size={16} />
-                            <h4>Preview</h4>
+                            <h4>Предпросмотр</h4>
                         </div>
                         <div ref={examplesPreviewRef} className={`markdown-body ${styles.preview}`}>
                             <ReactMarkdown
-                                remarkPlugins={[remarkGfm, remarkBreaks, remarkDirective]}
+                                remarkPlugins={[remarkGfm, remarkBreaks, remarkDirective, customDirectives]}
                                 rehypePlugins={[rehypeRaw]}
                             >
                                 {editData.examples}
@@ -426,13 +427,13 @@ export default function RuleEditor({ rule, categories }: Props) {
                 <div className={styles.panel}>
                     <div className={styles.panelHeader}>
                         <AlertTriangle size={20} />
-                        <h3>Punishments</h3>
+                        <h3>Наказания</h3>
                         <button
                             onClick={addPunishment}
                             className={`${styles.button} ${styles.buttonPrimary} ${styles.buttonSmall}`}
                         >
                             <Plus size={14} />
-                            Add Punishment
+                            Добавить наказание
                         </button>
                     </div>
 
@@ -481,7 +482,7 @@ export default function RuleEditor({ rule, categories }: Props) {
                                                     className={`${styles.button} ${styles.buttonSmall}`}
                                                 >
                                                     <Plus size={12} />
-                                                    Add Action
+                                                    Добавить действие
                                                 </button>
                                                 {punishment.actions.map((action, actionIndex) => (
                                                     <div key={action.id} className={styles.actionRow}>
@@ -490,10 +491,10 @@ export default function RuleEditor({ rule, categories }: Props) {
                                                             onChange={(e) => updateAction(punishmentIndex, actionIndex, 'type', e.target.value)}
                                                             className={styles.select}
                                                         >
-                                                            <option value="VERBAL">Verbal</option>
-                                                            <option value="WARN">Warn</option>
-                                                            <option value="TIMEOUT">Timeout</option>
-                                                            <option value="LOCALBAN">Local Ban</option>
+                                                            <option value="VERBAL">Словестное</option>
+                                                            <option value="WARN">Пред</option>
+                                                            <option value="TIMEOUT">Таймаут</option>
+                                                            <option value="LOCALBAN">Локал Бан</option>
                                                         </select>
                                                         <input
                                                             type="text"
@@ -519,7 +520,7 @@ export default function RuleEditor({ rule, categories }: Props) {
                                                 className={`${styles.button} ${styles.buttonDanger}`}
                                             >
                                                 <Trash2 size={14} />
-                                                Remove
+                                                Удалить
                                             </button>
                                         </td>
                                     </tr>
