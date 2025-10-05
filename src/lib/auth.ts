@@ -20,17 +20,10 @@ export const {
     callbacks: {
         async signIn({user, account, profile}) {
             if (!user?.email) return false;
-            return true;
-        },
-        async jwt({token, user, account, profile, trigger}) {
-            if (user?.id) {
-                token.uid = user.id;
-                token.email = user.email;
-            }
 
-            if (trigger === "signIn" && account?.provider === "discord" && profile && token.email) {
+            if (account?.provider === "discord" && profile) {
                 await prisma.user.update({
-                    where: { email: token.email },
+                    where: { email: user.email },
                     data: {
                         discordId: profile.id as string,
                         discordUsername: profile.username as string,
@@ -38,17 +31,29 @@ export const {
                 });
             }
 
+            return true;
+        },
+        async jwt({token, user, account, profile, trigger}) {
+            if (user?.id) {
+                token.uid = user.id;
+            }
+
             if (token.uid) {
                 const dbUser = await prisma.user.findUnique({
                     where: { id: token.uid as string },
-                    select: { id: true, role: true, discordId: true, discordUsername: true }
+                    select: {
+                        id: true,
+                        role: true,
+                        email: true,
+                        discordId: true,
+                    }
                 });
 
                 if (dbUser) {
                     token.uid = dbUser.id;
+                    token.email = dbUser.email;
                     token.role = dbUser.role;
                     token.discordId = dbUser.discordId;
-                    token.discordUsername = dbUser.discordUsername;
                 }
             }
 
@@ -56,7 +61,8 @@ export const {
         },
         async session({session, token}) {
             if (token?.uid) {
-                (session.user as any).id = token.uid;
+                session.user.id = token.uid as string;
+                session.user.email = token.email as string;
                 (session.user as any).role = token.role;
                 (session.user as any).discordId = token.discordId;
                 (session.user as any).discordUsername = token.discordUsername;
