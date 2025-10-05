@@ -82,6 +82,7 @@
 }
 .left {
     min-width: 330px;
+    max-width: 330px;
     padding: 2em;
     display: flex;
     flex-direction: column;
@@ -105,6 +106,7 @@
 }
 .right {
     padding: 2em;
+    max-width: calc(100% - 330px);
 }
 .table {
     border-spacing: 0 6px;
