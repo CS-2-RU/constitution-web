@@ -17,6 +17,7 @@ export default async function DeniedPage() {
 
     return (
         <div className={styles.container}>
+
             <h1>Wait For Access To Be Granted</h1>
             <p>Your account is pending approval. Please wait for an administrator to approve your access.</p>
             <p>User: {user.name || user.email}</p>
