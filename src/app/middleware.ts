@@ -11,10 +11,13 @@ export async function middleware(request: NextRequest) {
     const publicRoutes = ['/auth']
 
     // Routes that require authentication
-    const protectedRoutes = ['/', '/users']
+    const protectedRoutes = ['/', '/users', '/rules-edit']
 
-    // Admin routes
-    const adminRoutes = ['/users', '/rules-edit']
+    // Admin routes (ADMIN and SUPERADMIN)
+    const adminRoutes = ['/users']
+
+    // SuperAdmin-only routes
+    const superAdminRoutes = ['/rules-edit']
 
     // Allow public routes without any checks
     if (publicRoutes.some(route => pathname.startsWith(route))) {
@@ -66,7 +69,14 @@ export async function middleware(request: NextRequest) {
             return NextResponse.redirect(new URL('/', request.url))
         }
 
-        // Check admin routes access
+        // Check superadmin-only routes access
+        if (superAdminRoutes.some(route => pathname.startsWith(route))) {
+            if (userRole !== 'SUPERADMIN') {
+                return NextResponse.redirect(new URL('/', request.url))
+            }
+        }
+
+        // Check admin routes access (ADMIN and SUPERADMIN)
         if (adminRoutes.some(route => pathname.startsWith(route))) {
             if (userRole !== 'ADMIN' && userRole !== 'SUPERADMIN') {
                 return NextResponse.redirect(new URL('/', request.url))

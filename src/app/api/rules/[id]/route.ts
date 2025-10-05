@@ -55,7 +55,7 @@ export async function PUT(
 
         const currentUser = session.user as any
 
-        if (currentUser.role !== 'ADMIN' && currentUser.role !== 'SUPERADMIN') {
+        if (currentUser.role !== 'SUPERADMIN') {
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
         }
 
@@ -178,7 +178,7 @@ export async function DELETE(
 
         const currentUser = session.user as any
 
-        if (currentUser.role !== 'ADMIN' && currentUser.role !== 'SUPERADMIN') {
+        if (currentUser.role !== 'SUPERADMIN') {
             return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
         }
 
