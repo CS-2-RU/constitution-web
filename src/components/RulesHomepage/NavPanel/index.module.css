@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background: var(--bg-2);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-5);
+    padding: 1.5em;
+}
+.search {
+    display: flex;
+    flex-direction: row;
+    padding: 0.75em;
+    border-radius: 100px;
+    color: var(--color-3);
+    background: var(--bg-3);
+    align-items: center;
+    gap: 0.5em;
+}
+.search > input {
+    all: unset;
+    background: transparent;
+    color: var(--color-1);
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+.search > label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchWrapper {
+    display: flex;
+    position: relative;
+}
+.results {
+    top: 120%;
+    background: var(--bg-3);
+    position: absolute;
+    padding: 0.5em;
+    left: 0;
+    right: 0;
+    border-radius: var(--radius-4);
+    border: 1px solid var(--border-color-1);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+.result {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5em 0.75em;
+    transition-duration: 0.2s;
+}
+.result:hover {
+    background: var(--bg-4);
+    border-radius: var(--radius-3);
+}
+.top {
+    display: flex;
+    gap: 0.5em;
+}
+.ruleR {
+    color: var(--color-primary);
+}
+.nameR {}
+.categoryR {
+    color: var(--color-3);
+    font-size: 0.9rem;
+}
+.noFound {
+    color: var(--color-3);
+    text-align: center;
+    font-size: 0.9rem;
+}
+.categories {
+    display: flex;
+    flex-direction: column;
+}
+.ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex: 1;
+    list-style: none;
+}
+.category {
+    all: unset;
+    cursor: pointer;
+    padding: 1em;
+    border-bottom: 1px solid var(--border-color-1);
+    color: var(--color-3);
+    transition-duration: 0.2s;
+    position: relative;
+}
+.category:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: -5px;
+    bottom: 30%;
+    width: 5px;
+    transition-duration: 0.2s;
+    border-radius: var(--radius-1);
+}
+.category:hover {
+    color: var(--color-1);
+}
+.active {
+    color: var(--color-1);
+}
+.active:before {
+    background: var(--color-primary);
+}

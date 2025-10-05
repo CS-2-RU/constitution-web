@@ -1,0 +1,648 @@
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--red-hover);
+    border: 1px solid var(--red);
+    border-radius: var(--radius-2);
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.headerLeft svg {
+    color: var(--color-primary);
+}
+
+.headerLeft h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-1);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--color-3);
+    margin: 0.25rem 0 0 0;
+}
+
+.headerActions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-2);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.buttonPrimary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.buttonPrimary:hover:not(:disabled) {
+    background: #3d3dd6;
+    transform: translateY(-1px);
+}
+
+.buttonSecondary {
+    background: var(--bg-3);
+    border: 1px solid var(--border-color-1);
+    color: var(--color-2);
+}
+
+.buttonSecondary:hover:not(:disabled) {
+    background: var(--bg-4);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.buttonDanger {
+    background: var(--red-hover);
+    border: 1px solid rgba(235, 56, 56, 0.2);
+    color: var(--red);
+}
+
+.buttonDanger:hover:not(:disabled) {
+    background: rgba(235, 56, 56, 0.15);
+    border-color: var(--red);
+}
+
+.buttonSmall {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+}
+
+.iconButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    background: var(--bg-3);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--color-2);
+}
+
+.iconButton:hover:not(:disabled) {
+    background: var(--bg-4);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.iconButton.buttonDanger {
+    background: var(--red-hover);
+    border-color: rgba(235, 56, 56, 0.2);
+    color: var(--red);
+}
+
+.iconButton.buttonDanger:hover:not(:disabled) {
+    background: rgba(235, 56, 56, 0.15);
+    border-color: var(--red);
+}
+
+/* Panel */
+.panel {
+    background: var(--bg-2);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-3);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.panelHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--bg-3);
+    border-bottom: 1px solid var(--border-color-1);
+}
+
+.panelHeader h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-1);
+    margin: 0;
+}
+
+.panelHeader svg {
+    color: var(--color-primary);
+}
+
+/* Forms */
+.formSection {
+    padding: 1.5rem;
+}
+
+.formSection h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-1);
+    margin: 0 0 1.25rem 0;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.formGroup label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.input,
+.select,
+.textarea {
+    padding: 0.75rem;
+    background: var(--bg-3);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-2);
+    color: var(--color-1);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--bg-4);
+}
+
+.textarea {
+    resize: vertical;
+    font-family: 'Monaco', 'Courier New', monospace;
+    line-height: 1.5;
+}
+
+.select {
+    cursor: pointer;
+}
+
+.formActions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* Punishments Section */
+.punishmentsSection {
+    margin-top: 1.5rem;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sectionHeader label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.punishmentCard {
+    background: var(--bg-3);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-2);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.punishmentHeader {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.punishmentHeader .formGrid {
+    flex: 1;
+    margin: 0;
+}
+
+.actionsSection {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color-1);
+}
+
+.actionsSection strong {
+    font-size: 0.85rem;
+    color: var(--color-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.actionRow {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+
+.actionRow .select {
+    flex: 1;
+}
+
+.actionRow .input {
+    flex: 1;
+}
+
+/* Tables */
+.tableContainer {
+    background: var(--bg-2);
+    border-radius: var(--radius-3);
+    overflow: hidden;
+}
+
+.panel .tableContainer {
+    background: transparent;
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-2);
+    margin-top: 1.5rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.table thead {
+    background: var(--bg-3);
+}
+
+.table thead tr {
+    border-bottom: 1px solid var(--border-color-1);
+}
+
+.table th {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-2);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.table th > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid var(--border-color-1);
+    transition: background 0.15s ease;
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table tbody tr:hover {
+    background: var(--block-bg-o-1);
+}
+
+.table td {
+    padding: 1.25rem;
+    color: var(--color-2);
+    vertical-align: middle;
+}
+
+.categoryName {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-1);
+    font-weight: 500;
+}
+
+.ruleNumber {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: var(--color-1);
+    font-weight: 600;
+}
+
+.ruleName {
+    color: var(--color-1);
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.actionButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    background: var(--bg-3);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-1);
+    color: var(--color-2);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.actionButton:hover:not(:disabled) {
+    background: var(--bg-4);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.actionButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.actionEdit:hover:not(:disabled) {
+    background: rgba(76, 76, 228, 0.15);
+    border-color: rgba(76, 76, 228, 0.3);
+    color: var(--color-primary);
+}
+
+.actionDelete:hover:not(:disabled) {
+    background: var(--red-hover);
+    border-color: rgba(235, 56, 56, 0.3);
+    color: var(--red);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.6rem;
+    background: var(--bg-4);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-1);
+    font-size: 0.75rem;
+    color: var(--color-3);
+    font-weight: 600;
+}
+
+/* Punishments List */
+.punishmentsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.punishmentItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.punishmentName {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-1);
+}
+
+.punishmentLevel {
+    padding: 0.2rem 0.5rem;
+    background: var(--bg-4);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-1);
+    font-size: 0.7rem;
+    color: var(--color-3);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.actionTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.actionTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--bg-3);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-1);
+    font-size: 0.75rem;
+    color: var(--color-3);
+    font-weight: 500;
+}
+
+.emptyValue {
+    color: var(--color-3);
+    opacity: 0.5;
+    font-style: italic;
+}
+
+/* Rules Container */
+.rulesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.categorySection {
+    background: var(--bg-2);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-3);
+    overflow: hidden;
+}
+
+.categoryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--bg-3);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.categoryHeader:hover {
+    background: var(--bg-4);
+}
+
+.categoryTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.categoryTitle svg {
+    color: var(--color-primary);
+}
+
+.categoryTitle h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-1);
+    margin: 0;
+}
+
+.emptyCategory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    color: var(--color-3);
+    gap: 1rem;
+}
+
+.emptyCategory svg {
+    opacity: 0.5;
+}
+
+.emptyCategory p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background: var(--bg-2);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-3);
+    color: var(--color-3);
+    gap: 1rem;
+}
+
+.emptyState svg {
+    opacity: 0.5;
+}
+
+.emptyState h3 {
+    font-size: 1.25rem;
+    color: var(--color-1);
+    margin: 0;
+}
+
+.emptyState p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .headerActions {
+        width: 100%;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .headerLeft h1 {
+        font-size: 1.5rem;
+    }
+
+    .button {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .tableContainer {
+        overflow-x: auto;
+    }
+
+    .table {
+        min-width: 800px;
+    }
+
+    .actionRow {
+        flex-direction: column;
+    }
+
+    .actionRow .select,
+    .actionRow .input {
+        width: 100%;
+    }
+}

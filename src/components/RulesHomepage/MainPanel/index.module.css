@@ -1,0 +1,81 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+.rule {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    border-radius: var(--radius-5);
+    background: var(--bg-2);
+    border: 1px solid var(--border-color-1);
+    width: 200px;
+    height: 200px;
+    gap: 1em;
+}
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.top > h2 {
+    color: var(--color-primary);
+    font-size: 2rem;
+}
+.top > h3 {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.punishments {
+    display: flex;
+    flex-direction: column;
+}
+.punishmentsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.punishment {
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.75em;
+    background: var(--bg-3);
+    border-radius: var(--radius-2);
+    font-size: 0.9rem;
+    color: var(--color-2);
+}
+.action {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+}
+.warn {
+    background: #fa7d17;
+    box-shadow: 0 0 9px 0 rgba(250, 125, 23, 0.6);
+}
+.timeout {
+    background: #7e20cb;
+    box-shadow: 0 0 9px 0 rgb(126, 32, 203, 0.6);
+}
+.localban {
+    background: #e63d3d;
+    box-shadow: 0 0 9px 0 rgb(230, 61, 61, 0.6);
+}
+.verbal {
+    background: #32b432;
+    box-shadow: 0 0 9px 0 rgb(50, 180, 50, 0.6);
+}
+.more {
+    margin-top: 0.5em;
+    font-size: 0.9rem;
+    color: var(--color-3);
+}

@@ -1,0 +1,104 @@
+.custom-directive {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 8px;
+    border-left: 4px solid;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.custom-directive p {
+    margin: 0 !important;
+}
+.directive-danger p:nth-child(1), .directive-warn p:nth-child(1), .directive-accept p:nth-child(1) {
+    font-size: 1.25rem;
+}
+
+.directive-danger {
+    background-color: #450a0a;
+    border-left-color: #ef4444;
+    color: #fca5a5;
+}
+
+.directive-warn {
+    background-color: #39331a;
+    border-left-color: #fbbf24;
+    color: #fcd34d;
+}
+
+.directive-accept {
+    background-color: #052e16;
+    border-left-color: #22c55e;
+    color: #86efac;
+}
+
+/* Inline code-like directives */
+.custom-directive-inline {
+    display: inline;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.directive-user {
+    background-color: rgba(2, 35, 125, 0.5);
+    color: #c2d8f3;
+}
+
+.directive-channel {
+    background-color: rgba(113, 63, 18, 0.5);
+    color: #f6eaa4;
+}
+
+.directive-message {
+    flex-direction: row;
+    gap: 10px;
+    padding: 4px;
+    border-left: none;
+    margin: 0;
+}
+
+.message-pfp {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background-color: #34353d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.message-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-name {
+    font-weight: 600;
+    color: #7592ff;
+    font-size: 1rem;
+}
+
+.message-text {
+    line-height: 1.5;
+    font-size: 1rem !important;
+}
+.custom-directive-inline {
+    display: inline;
+    padding: 3px;
+    border-radius: 6px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    font-weight: 500;
+    white-space: nowrap;
+}

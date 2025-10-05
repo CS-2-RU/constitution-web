@@ -1,0 +1,138 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  DENIED
+  USER
+  ADMIN
+  SUPERADMIN
+}
+
+enum ActionType {
+  VERBAL
+  WARN
+  TIMEOUT
+  LOCALBAN
+}
+
+enum AuditAction {
+  CREATE
+  EDIT
+  DELETE
+}
+
+model User {
+  id              String    @id @default(cuid())
+  email           String    @unique
+  emailVerified   DateTime?
+  name            String?
+  password        String?
+  image           String?
+  discordId       String?
+  discordUsername String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts      Account[]
+  ruleAuditLogs RuleAuditLog[]
+
+  role Role @default(DENIED)
+
+  @@map("users")
+}
+
+model Account {
+  id                String   @id @default(cuid())
+  userId            String   @map("user_id")
+  type              String?
+  provider          String
+  providerAccountId String   @map("provider_account_id")
+  token_type        String?
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  scope             String?
+  id_token          String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String @unique
+  index Int    @default(0) // For ordering
+  rules Rule[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("categories")
+}
+
+model Rule {
+  id         String   @id @default(cuid())
+  rule       String   @unique
+  name       String
+  content    String
+  examples   String
+  categoryId String   @map("category_id")
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  punishments Punishment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("rules")
+}
+
+model Punishment {
+  id      String   @id @default(cuid())
+  name    String // Short explanation (e.g., "Light", "Hard")
+  index   Int // Sort order, higher = more severe
+  ruleId  String
+  rule    Rule     @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  actions Action[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("punishments")
+}
+
+model Action {
+  id           String     @id @default(cuid())
+  type         ActionType
+  duration     String? // e.g., "1 day", "permanent", null for warnings
+  punishmentId String
+  punishment   Punishment @relation(fields: [punishmentId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("actions")
+}
+
+model RuleAuditLog {
+  id       String      @id @default(cuid())
+  action   AuditAction
+  ruleId   String? // Null for CREATE before rule exists
+  ruleData String // JSON string of the rule data
+  userId   String
+  user     User        @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("rule_audit_logs")
+}
