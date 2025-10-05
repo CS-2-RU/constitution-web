@@ -31,6 +31,8 @@ export default function MainPanel({ rules, categoryName }: MainPanelProps) {
                 return 'Таймаут'
             case 'LOCALBAN':
                 return 'Локал Бан'
+            case 'OLD':
+                return 'Обращение к модераторам и выше'
             default:
                 return type
         }

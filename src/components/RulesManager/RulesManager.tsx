@@ -18,12 +18,13 @@ import {
     X,
     ChevronDown,
     ChevronUp,
-    Save
+    Save,
+    Shield
 } from 'lucide-react'
 import styles from './index.module.css'
 
 type Action = {
-    type: 'VERBAL' | 'WARN' | 'TIMEOUT' | 'LOCALBAN'
+    type: 'VERBAL' | 'WARN' | 'TIMEOUT' | 'LOCALBAN' | 'OLD'
     duration: string
 }
 
@@ -68,6 +69,8 @@ const getActionIcon = (type: string) => {
             return <Clock size={14} />
         case 'LOCALBAN':
             return <Ban size={14} />
+        case 'OLD':
+            return <Shield size={14} />
         default:
             return null
     }
@@ -107,7 +110,7 @@ export default function RulesManager({ initialRules, initialCategories }: Props)
         punishments: [] as Array<{
             name: string
             index: number
-            actions: Array<{type: 'VERBAL' | 'WARN' | 'TIMEOUT' | 'LOCALBAN', duration: string}>
+            actions: Array<{type: 'VERBAL' | 'WARN' | 'TIMEOUT' | 'LOCALBAN' | 'OLD', duration: string}>
         }>
     })
     const [categoryData, setCategoryData] = useState({
@@ -645,6 +648,7 @@ export default function RulesManager({ initialRules, initialCategories }: Props)
                                                     <option value="WARN">Warn</option>
                                                     <option value="TIMEOUT">Timeout</option>
                                                     <option value="LOCALBAN">Local Ban</option>
+                                                    <option value="OLD">Old</option>
                                                 </select>
                                                 <input
                                                     type="text"

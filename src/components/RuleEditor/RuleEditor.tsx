@@ -31,7 +31,7 @@ import {customDirectives} from "@/utils/custom-directive";
 
 type Action = {
     id: string
-    type: 'VERBAL' | 'WARN' | 'TIMEOUT' | 'LOCALBAN'
+    type: 'VERBAL' | 'WARN' | 'TIMEOUT' | 'LOCALBAN' | 'OLD'
     duration: string | null
 }
 
@@ -495,6 +495,7 @@ export default function RuleEditor({ rule, categories }: Props) {
                                                             <option value="WARN">Пред</option>
                                                             <option value="TIMEOUT">Таймаут</option>
                                                             <option value="LOCALBAN">Локал Бан</option>
+                                                            <option value="OLD">Обращение к модераторам и выше</option>
                                                         </select>
                                                         <input
                                                             type="text"

@@ -19,6 +19,7 @@ enum ActionType {
   WARN
   TIMEOUT
   LOCALBAN
+  OLD
 }
 
 enum AuditAction {

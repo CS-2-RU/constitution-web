@@ -70,6 +70,10 @@
     background: #e63d3d;
     box-shadow: 0 0 9px 0 rgb(230, 61, 61, 0.6);
 }
+.old {
+    background: #3d91e6;
+    box-shadow: 0 0 9px 0 rgba(61, 171, 230, 0.6);
+}
 .verbal {
     background: #32b432;
     box-shadow: 0 0 9px 0 rgb(50, 180, 50, 0.6);

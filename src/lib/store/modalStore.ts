@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 export type Action = {
     id: string
-    type: 'VERBAL' | 'WARN' | 'TIMEOUT' | 'LOCALBAN'
+    type: 'VERBAL' | 'WARN' | 'TIMEOUT' | 'LOCALBAN' | 'OLD'
     duration: string | null
 }
 

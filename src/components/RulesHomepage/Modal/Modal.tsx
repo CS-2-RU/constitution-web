@@ -46,6 +46,8 @@ export default function Modal() {
                 return 'Таймаут'
             case 'LOCALBAN':
                 return 'Локал Бан'
+            case 'OLD':
+                return 'Обращение к модератору и выше'
             default:
                 return type
         }
@@ -60,6 +62,8 @@ export default function Modal() {
                 return styles.timeout
             case 'LOCALBAN':
                 return styles.localban
+            case 'OLD':
+                return styles.old
             default:
                 return type
         }
