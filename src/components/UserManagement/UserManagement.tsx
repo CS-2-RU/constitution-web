@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Shield, User, Crown, Ban, AlertCircle, Calendar, Mail, MessageSquare, Trash2 } from 'lucide-react'
+import { useState, useMemo } from 'react'
+import { Shield, User, Crown, Ban, AlertCircle, Calendar, Mail, MessageSquare, Trash2, Search, X } from 'lucide-react'
 import styles from './index.module.css'
 
 type User = {
@@ -54,6 +54,8 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
     const [isUpdating, setIsUpdating] = useState<string | null>(null)
     const [isDeleting, setIsDeleting] = useState<string | null>(null)
     const [error, setError] = useState<string | null>(null)
+    const [searchQuery, setSearchQuery] = useState('')
+    const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set(['SUPERADMIN', 'ADMIN', 'USER', 'DENIED']))
 
     const canModifyUser = (targetUser: User) => {
         if (currentUserRole === 'SUPERADMIN') {
@@ -100,7 +102,6 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
                 throw new Error(errorData.error || 'Failed to update user role')
             }
 
-            // Simulating router.refresh()
             window.location.reload()
         } catch (err) {
             setError(err instanceof Error ? err.message : 'An error occurred')
@@ -133,7 +134,6 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
                 throw new Error(errorData.error || 'Failed to delete user')
             }
 
-            // Simulating router.refresh()
             window.location.reload()
         } catch (err) {
             setError(err instanceof Error ? err.message : 'An error occurred')
@@ -141,6 +141,46 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
             setIsDeleting(null)
         }
     }
+
+    const toggleFilter = (role: string) => {
+        setActiveFilters(prev => {
+            const newFilters = new Set(prev)
+            if (newFilters.has(role)) {
+                newFilters.delete(role)
+            } else {
+                newFilters.add(role)
+            }
+            return newFilters
+        })
+    }
+
+    const clearSearch = () => {
+        setSearchQuery('')
+    }
+
+    const filteredUsers = useMemo(() => {
+        return users.filter(user => {
+            // Role filter
+            if (!activeFilters.has(user.role)) {
+                return false
+            }
+
+            // Search filter
+            if (searchQuery.trim() === '') {
+                return true
+            }
+
+            const query = searchQuery.toLowerCase()
+            const matchesId = user.id.toLowerCase().includes(query)
+            const matchesEmail = user.email.toLowerCase().includes(query)
+            const matchesName = user.name?.toLowerCase().includes(query)
+            const matchesDiscordUsername = user.discordUsername?.toLowerCase().includes(query)
+
+            return matchesId || matchesEmail || matchesName || matchesDiscordUsername
+        })
+    }, [users, searchQuery, activeFilters])
+
+    const allRoles = ['SUPERADMIN', 'ADMIN', 'USER', 'DENIED']
 
     return (
         <div className={styles.container}>
@@ -153,7 +193,43 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
 
             <div className={styles.header}>
                 <h2>User Management</h2>
-                <span className={styles.userCount}>{users.length} users</span>
+                <span className={styles.userCount}>{filteredUsers.length} of {users.length} users</span>
+            </div>
+
+            <div className={styles.filterSection}>
+                <div className={styles.searchWrapper}>
+                    <Search size={18} className={styles.searchIcon} />
+                    <input
+                        type="text"
+                        placeholder="Search by ID, email, name, or Discord username..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className={styles.searchInput}
+                    />
+                    {searchQuery && (
+                        <button
+                            onClick={clearSearch}
+                            className={styles.clearButton}
+                            aria-label="Clear search"
+                        >
+                            <X size={16} />
+                        </button>
+                    )}
+                </div>
+
+                <div className={styles.filterButtons}>
+                    <span className={styles.filterLabel}>Show roles:</span>
+                    {allRoles.map(role => (
+                        <button
+                            key={role}
+                            onClick={() => toggleFilter(role)}
+                            className={`${styles.filterButton} ${activeFilters.has(role) ? styles.filterButtonActive : ''} ${getRoleColor(role)}`}
+                        >
+                            {getRoleIcon(role)}
+                            {role}
+                        </button>
+                    ))}
+                </div>
             </div>
 
             <div className={styles.tableContainer}>
@@ -161,107 +237,116 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
                     <thead>
                     <tr>
                         <th>
-                                <span>
-                                    <Mail size={16} />
-                                    Email
-                                </span>
+                            <span>
+                                <Mail size={16} />
+                                Email
+                            </span>
                         </th>
                         <th>
-                                <span>
-                                    <User size={16} />
-                                    Name
-                                </span>
+                            <span>
+                                <User size={16} />
+                                Name
+                            </span>
                         </th>
                         <th>
-                                <span>
-                                    <MessageSquare size={16} />
-                                    Discord
-                                </span>
+                            <span>
+                                <MessageSquare size={16} />
+                                Discord
+                            </span>
                         </th>
                         <th>
-                                <span>
-                                    <Shield size={16} />
-                                    Role
-                                </span>
+                            <span>
+                                <Shield size={16} />
+                                Role
+                            </span>
                         </th>
                         <th>
-                                <span>
-                                    <Calendar size={16} />
-                                    Joined
-                                </span>
+                            <span>
+                                <Calendar size={16} />
+                                Joined
+                            </span>
                         </th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {users.map((user) => (
-                        <tr key={user.id}>
-                            <td className={styles.emailCell}>{user.email}</td>
-                            <td>{user.name || <span className={styles.emptyValue}>—</span>}</td>
-                            <td>
-                                {user.discordUsername ? (
-                                    <div className={styles.discordInfo}>
+                    {filteredUsers.length === 0 ? (
+                        <tr>
+                            <td colSpan={6} className={styles.noResults}>
+                                <AlertCircle size={24} />
+                                <span>No users found matching your criteria</span>
+                            </td>
+                        </tr>
+                    ) : (
+                        filteredUsers.map((user) => (
+                            <tr key={user.id}>
+                                <td className={styles.emailCell}>{user.email}</td>
+                                <td>{user.name || <span className={styles.emptyValue}>—</span>}</td>
+                                <td>
+                                    {user.discordUsername ? (
+                                        <div className={styles.discordInfo}>
                                             <span className={styles.discordUsername}>
                                                 {user.discordUsername}
                                             </span>
-                                        {user.discordId && (
-                                            <span className={styles.discordId}>
+                                            {user.discordId && (
+                                                <span className={styles.discordId}>
                                                     ID: {user.discordId}
                                                 </span>
-                                        )}
-                                    </div>
-                                ) : (
-                                    <span className={styles.emptyValue}>—</span>
-                                )}
-                            </td>
-                            <td>
-                                <div className={styles.roleCell}>
+                                            )}
+                                        </div>
+                                    ) : (
+                                        <span className={styles.emptyValue}>—</span>
+                                    )}
+                                </td>
+                                <td>
+                                    <div className={styles.roleCell}>
                                         <span className={`${styles.roleBadge} ${getRoleColor(user.role)}`}>
                                             {getRoleIcon(user.role)}
                                             {user.role}
                                         </span>
-                                    {user.id === currentUserId && (
-                                        <span className={styles.youBadge}>You</span>
-                                    )}
-                                </div>
-                            </td>
-                            <td className={styles.dateCell}>
-                                {new Date(user.createdAt).toLocaleDateString('en-US', {
-                                    month: 'short',
-                                    day: 'numeric',
-                                    year: 'numeric'
-                                })}
-                            </td>
-                            <td>
-                                {canModifyUser(user) ? (
-                                    <div className={styles.actions}>
-                                        {getAvailableRoles(user).map((role) => (
-                                            <button
-                                                key={role}
-                                                onClick={() => updateUserRole(user.id, role)}
-                                                disabled={isUpdating === user.id || user.role === role}
-                                                className={`${styles.actionButton} ${user.role === role ? styles.currentRole : ''} ${getRoleColor(role)}`}
-                                            >
-                                                {getRoleIcon(role)}
-                                                {isUpdating === user.id ? 'Updating...' : role}
-                                            </button>
-                                        ))}
-                                        <button
-                                            onClick={() => deleteUser(user.id, user.email)}
-                                            disabled={isDeleting === user.id || user.id === currentUserId}
-                                            className={`${styles.actionButton} ${styles.deleteButton}`}
-                                            title={user.id === currentUserId ? "You cannot delete yourself" : "Delete user"}
-                                        >
-                                            <Trash2 size={14} />
-                                            {isDeleting === user.id ? 'Deleting...' : 'Delete'}
-                                        </button>
+                                        {user.id === currentUserId && (
+                                            <span className={styles.youBadge}>You</span>
+                                        )}
                                     </div>
-                                ) : (
-                                    <span className={styles.noPermissions}>No permissions</span>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
+                                </td>
+                                <td className={styles.dateCell}>
+                                    {new Date(user.createdAt).toLocaleDateString('en-US', {
+                                        month: 'short',
+                                        day: 'numeric',
+                                        year: 'numeric'
+                                    })}
+                                </td>
+                                <td>
+                                    {canModifyUser(user) ? (
+                                        <div className={styles.actions}>
+                                            {getAvailableRoles(user).map((role) => (
+                                                <button
+                                                    key={role}
+                                                    onClick={() => updateUserRole(user.id, role)}
+                                                    disabled={isUpdating === user.id || user.role === role}
+                                                    className={`${styles.actionButton} ${user.role === role ? styles.currentRole : ''} ${getRoleColor(role)}`}
+                                                >
+                                                    {getRoleIcon(role)}
+                                                    {isUpdating === user.id ? 'Updating...' : role}
+                                                </button>
+                                            ))}
+                                            <button
+                                                onClick={() => deleteUser(user.id, user.email)}
+                                                disabled={isDeleting === user.id || user.id === currentUserId}
+                                                className={`${styles.actionButton} ${styles.deleteButton}`}
+                                                title={user.id === currentUserId ? "You cannot delete yourself" : "Delete user"}
+                                            >
+                                                <Trash2 size={14} />
+                                                {isDeleting === user.id ? 'Deleting...' : 'Delete'}
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <span className={styles.noPermissions}>No permissions</span>
+                                    )}
+                                </td>
+                            </tr>
+                        ))
+                    )}
                     </tbody>
                 </table>
             </div>

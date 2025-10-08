@@ -56,6 +56,14 @@
     color: #f6eaa4;
 }
 
+.directive-red {
+    color: #FF3D3D;
+}
+.directive-red-bg {
+    background-color: rgba(113, 18, 18, 0.3);
+    color: #FF3D3D;
+}
+
 .directive-message {
     flex-direction: row;
     gap: 10px;

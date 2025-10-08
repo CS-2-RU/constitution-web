@@ -321,3 +321,165 @@
     opacity: 0.3;
     cursor: not-allowed;
 }
+
+/* Search and Filter Section */
+.filterSection {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.searchWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1rem;
+    color: var(--color-3);
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 3rem;
+    background: var(--bg-2);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-2);
+    color: var(--color-1);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--bg-3);
+}
+
+.searchInput::placeholder {
+    color: var(--color-3);
+}
+
+.clearButton {
+    position: absolute;
+    right: 0.75rem;
+    background: var(--bg-4);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-1);
+    padding: 0.375rem;
+    color: var(--color-3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+    background: var(--bg-3);
+    color: var(--color-2);
+}
+
+.filterButtons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.filterLabel {
+    color: var(--color-2);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.filterButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: var(--bg-2);
+    border: 1px solid var(--border-color-1);
+    border-radius: var(--radius-2);
+    color: var(--color-3);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0.5;
+}
+
+.filterButton:hover {
+    opacity: 0.75;
+    transform: translateY(-1px);
+}
+
+.filterButtonActive {
+    opacity: 1;
+    border-width: 2px;
+}
+
+.filterButton.filterButtonActive.roleSuperadmin {
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.filterButton.filterButtonActive.roleAdmin {
+    background: rgba(76, 76, 228, 0.15);
+    color: var(--color-primary);
+    border-color: rgba(76, 76, 228, 0.4);
+}
+
+.filterButton.filterButtonActive.roleUser {
+    background: rgba(100, 200, 100, 0.1);
+    color: #64c864;
+    border-color: rgba(100, 200, 100, 0.4);
+}
+
+.filterButton.filterButtonActive.roleDenied {
+    background: var(--red-hover);
+    color: var(--red);
+    border-color: rgba(235, 56, 56, 0.4);
+}
+
+.noResults {
+    text-align: center;
+    padding: 3rem 2rem !important;
+    color: var(--color-3);
+}
+
+.noResults span {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filterSection {
+        gap: 0.75rem;
+    }
+
+    .filterButtons {
+        gap: 0.5rem;
+    }
+
+    .filterButton {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .searchInput {
+        padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+        font-size: 0.85rem;
+    }
+}

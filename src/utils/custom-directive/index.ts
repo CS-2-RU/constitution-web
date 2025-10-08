@@ -16,6 +16,8 @@ export function customDirectives() {
                     accept: {emoji: '✅', className: 'directive-accept'},
                     user: {className: 'directive-user', inline: true},
                     channel: {className: 'directive-channel', inline: true},
+                    red: {className: 'directive-red', inline: true},
+                    red_background: {className: 'directive-red-bg', inline: true},
                     message: {className: 'directive-message'}
                 }
 

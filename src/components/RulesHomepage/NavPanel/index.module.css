@@ -60,7 +60,8 @@
 }
 .top {
     display: flex;
-    gap: 0.5em;
+    flex-direction: column;
+    gap: 0.25em;
 }
 .ruleR {
     color: var(--color-primary);
