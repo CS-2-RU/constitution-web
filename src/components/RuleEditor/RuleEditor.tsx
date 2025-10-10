@@ -491,7 +491,7 @@ export default function RuleEditor({ rule, categories }: Props) {
                                                             onChange={(e) => updateAction(punishmentIndex, actionIndex, 'type', e.target.value)}
                                                             className={styles.select}
                                                         >
-                                                            <option value="VERBAL">Словестное</option>
+                                                            <option value="VERBAL">Словесное</option>
                                                             <option value="WARN">Пред</option>
                                                             <option value="TIMEOUT">Таймаут</option>
                                                             <option value="LOCALBAN">Локал Бан</option>

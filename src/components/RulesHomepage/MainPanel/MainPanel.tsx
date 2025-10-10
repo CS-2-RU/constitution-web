@@ -24,7 +24,7 @@ export default function MainPanel({ rules, categoryName }: MainPanelProps) {
     const formatActionType = (type: string) => {
         switch (type) {
             case 'VERBAL':
-                return 'Словестное'
+                return 'Словесное'
             case 'WARN':
                 return 'Пред'
             case 'TIMEOUT':
