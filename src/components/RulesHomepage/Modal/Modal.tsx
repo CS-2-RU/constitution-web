@@ -110,7 +110,7 @@ export default function Modal() {
                     </div>
                 </div>
                 <div className={styles.content}>
-                    <div className={styles.left}>
+                    {(rule.punishments.length > 0) && <div className={styles.left}>
                         <div className={styles.punishmentHeader}>
                             <div className={styles.logo}>
                                 <Gavel/>
@@ -127,7 +127,7 @@ export default function Modal() {
                                 <thead>
                                 <tr>
                                     <th>
-                                        Пункт
+                                        Случай
                                     </th>
                                     <th>
                                         Действия
@@ -168,8 +168,9 @@ export default function Modal() {
                                 </tbody>
                             </table>
                         )}
-                    </div>
-                    <div className={styles.right}>
+                    </div>}
+
+                    <div className={styles.right + " "  + (rule.punishments.length > 0 ? styles.rightP : styles.rightNP)}>
                         {activeTab === 'rule' && (
                             <div className="markdown-body">
                                 <ReactMarkdown

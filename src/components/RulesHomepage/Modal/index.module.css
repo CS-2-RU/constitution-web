@@ -108,6 +108,12 @@
     padding: 2em;
     max-width: calc(100% - 330px);
 }
+.rightP {
+    max-width: calc(100% - 330px);
+}
+.rightNP {
+    max-width: calc(100%);
+}
 .table {
     border-spacing: 0 6px;
 
