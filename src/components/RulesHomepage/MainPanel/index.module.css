@@ -91,3 +91,9 @@
     font-size: 0.9rem;
     color: var(--color-3);
 }
+
+@media (orientation: portrait) {
+    .rule {
+        width: 100%;
+    }
+}

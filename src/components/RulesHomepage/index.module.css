@@ -4,3 +4,10 @@
     margin: 0 3em 3em 3em;
     flex: 1;
 }
+
+@media (orientation: portrait) {
+    .main {
+        flex-direction: column;
+        margin: 1em;
+    }
+}

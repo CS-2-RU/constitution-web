@@ -116,3 +116,32 @@
 .active:before {
     background: var(--color-primary);
 }
+
+.search > input {
+    all: unset;
+    background: transparent;
+    color: var(--color-1);
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    flex: 1; /* Add this */
+}
+
+.collapseBtn {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-3);
+    transition: color 0.2s;
+    padding: 0.25em;
+}
+
+.collapseBtn:hover {
+    color: var(--color-1);
+}
+
+.collapsed {
+    gap: 0; /* Override the gap when collapsed */
+}

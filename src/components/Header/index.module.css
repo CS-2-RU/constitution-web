@@ -58,3 +58,9 @@
     color: var(--color-1);
     background-color: var(--block-bg-o-1);
 }
+
+@media (orientation: portrait) {
+    .container {
+        padding: 1em;
+    }
+}
