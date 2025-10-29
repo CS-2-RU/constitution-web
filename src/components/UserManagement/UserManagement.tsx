@@ -280,7 +280,9 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
                     ) : (
                         filteredUsers.map((user) => (
                             <tr key={user.id}>
-                                <td className={styles.emailCell}>{user.email}</td>
+                                <td className={styles.emailCell}>
+                                    {user.role === 'SUPERADMIN' ? 'hidden' : user.email}
+                                </td>
                                 <td>{user.name || <span className={styles.emptyValue}>—</span>}</td>
                                 <td>
                                     {user.discordUsername ? (
