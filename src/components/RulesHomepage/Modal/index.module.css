@@ -191,3 +191,32 @@
     align-items: center;
     text-align: left;
 }
+
+@media (orientation: portrait) {
+    .inner {
+        width: 90vw;
+        flex-direction: column;
+    }
+    .top {
+        padding: 1em;
+        flex-direction: column-reverse;
+        gap: 1em;
+    }
+    .topRight {
+        align-self: stretch;
+        justify-content: space-between;
+    }
+    .topLeft {}
+    .left {
+        border-right: none;
+        padding: 1em;
+    }
+    .content {
+        flex-direction: column;
+    }
+    .right {
+        max-width: unset;
+        width: 100%;
+        padding: 1em;
+    }
+}
