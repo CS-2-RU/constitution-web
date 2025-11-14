@@ -171,12 +171,12 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
             }
 
             const query = searchQuery.toLowerCase()
-            const matchesId = user.id.toLowerCase().includes(query)
             const matchesEmail = user.email.toLowerCase().includes(query)
             const matchesName = user.name?.toLowerCase().includes(query)
             const matchesDiscordUsername = user.discordUsername?.toLowerCase().includes(query)
+            const matchesDiscordId = user.discordId?.toLowerCase().includes(query)
 
-            return matchesId || matchesEmail || matchesName || matchesDiscordUsername
+            return matchesEmail || matchesName || matchesDiscordUsername || matchesDiscordId
         })
     }, [users, searchQuery, activeFilters])
 
@@ -201,7 +201,7 @@ export default function UserManagement({ users, currentUserRole, currentUserId }
                     <Search size={18} className={styles.searchIcon} />
                     <input
                         type="text"
-                        placeholder="Search by ID, email, name, or Discord username..."
+                        placeholder="Search by email, name, Discord username, or Discord ID..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className={styles.searchInput}
