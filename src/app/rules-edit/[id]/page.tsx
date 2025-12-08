@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { redirect, notFound } from "next/navigation"
 import RuleEditor from "@/components/RuleEditor/RuleEditor";
 
-export default async function RuleEditPage({ params }: { params: { id: string } }) {
+export default async function RuleEditPage({ params }: { params: Promise<{ id: string }> }) {
     const session = await auth()
 
     if (!session) {
@@ -16,9 +16,11 @@ export default async function RuleEditPage({ params }: { params: { id: string } 
         redirect('/')
     }
 
+    const { id } = await params
+
     // Fetch the specific rule
     const rule = await prisma.rule.findUnique({
-        where: { id: params.id },
+        where: { id },
         include: {
             category: true,
             punishments: {
