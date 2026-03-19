@@ -97,3 +97,4 @@ CREATE UNIQUE INDEX "categories_name_key" ON "categories"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "rules_rule_key" ON "rules"("rule");
+
