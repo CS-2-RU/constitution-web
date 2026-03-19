@@ -51,7 +51,7 @@ jobs:
             
             # Run migrations
             echo "Running database migrations..."
-            pnpm prisma migrate dev --name init
+            pnpm prisma migrate deploy
             
             # Delete old build
             rm -rf .next
